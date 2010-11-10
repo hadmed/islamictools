@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent" 
+        android:layout_weight="1" 
+        android:clipToPadding="true"
+        android:paddingBottom="32dip">
+        
+        <ListView android:id="@android:id/list"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"/>
+            
+            
+        <TextView android:id="@+id/empty"
+            android:layout_width="fill_parent" 
+            android:layout_height="fill_parent"
+            android:text="Text non chargé !"/>
+            
+  </RelativeLayout>
+      <RelativeLayout
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:paddingTop="-80dip"
+        > 
+	<SlidingDrawer
+		android:id="@+id/xgz_drawer"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:handle="@+id/handleimg"
+		android:content="@+id/exegese"
+		android:orientation="vertical"
+		android:paddingTop="-10dip"
+		android:clickable="false"
+		>
+		<ImageView
+			android:id="@+id/handleimg"
+			android:background="#e0e0e0"			
+			android:layout_width="88dip"
+			android:layout_height="32dip"
+			android:src="@drawable/xgz_off"
+
+			 />
+	<TextView android:id="@+id/timing"
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"
+            android:text="00000"/>   
+        <WebView android:id="@+id/exegese"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent" 
+            android:text="@string/loading"
+            android:background="#000000"
+            />            
+   </SlidingDrawer>
+   </RelativeLayout>
+</AbsoluteLayout>

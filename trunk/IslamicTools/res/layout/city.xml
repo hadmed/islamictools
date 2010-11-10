@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:layout_gravity="center_vertical|center_horizontal" >
+
+   <TextView
+   		android:id="@+id/txtsam"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Continent"
+    />
+    <Spinner android:id="@+id/spinContinent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/spinContinent"
+    />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:text="Pays"
+    />
+
+    <Spinner android:id="@+id/spinCountry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/spinCountry"
+    />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:text="Ville"
+    />
+
+    <Spinner android:id="@+id/spinCity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:drawSelectorOnTop="true"
+        android:prompt="@string/spinCity"
+    />
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+   android:layout_marginTop="10dip"
+	android:layout_gravity="center_vertical|center_horizontal" >
+
+    <TextView
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Latitude"
+    />
+
+    <TextView
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:text="00°00'N"
+        android:id="@+id/latparam"
+    />
+</LinearLayout>
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+	android:layout_gravity="center_vertical|center_horizontal" >
+    <TextView
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Longitude"
+    />
+
+    <TextView
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:text="00°00'E"
+        android:id="@+id/lonparam"
+    />
+</LinearLayout>
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+	android:layout_gravity="center_vertical|center_horizontal" >
+    <TextView
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="GMT"
+    />
+
+    <TextView
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:text="+1"
+        android:id="@+id/gmtparam"
+    />
+</LinearLayout>
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+	android:layout_gravity="center_vertical|center_horizontal" >
+    <TextView
+        android:layout_width="120dip"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="dst"
+    />
+
+    <TextView
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:text="on"
+        android:id="@+id/dstparam"
+    />
+</LinearLayout>
+</LinearLayout>
