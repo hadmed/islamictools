@@ -4,10 +4,7 @@ import com.alpha.pt.Date;
 import com.alpha.pt.Location;
 import com.alpha.pt.Method;
 import com.alpha.pt.Prayer;
-/**
- * @author Alaa
- *
- */
+
 public class PT {
 	public static PrayerTime [] getPrayerTimes(int year, int month, int day,double latitude,double longitude,float gmt,int dst,int method) {
 		PrayerTime[] prayers = new PrayerTime[7];

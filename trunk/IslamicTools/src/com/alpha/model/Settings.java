@@ -1,16 +1,11 @@
-/**
- * 
- */
+
 package com.alpha.model;
 
 import java.util.TimeZone;
 
 import com.alpha.commun.utils;
 
-/**
- * @author Alaa
- *
- */
+
 public class Settings {
 	private double lat;
 	private double lon;

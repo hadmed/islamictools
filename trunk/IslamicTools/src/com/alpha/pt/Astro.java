@@ -1,12 +1,6 @@
-/**
- * 
- */
+
 package com.alpha.pt;
 
-/**
- * @author Alaa
- *
- */
 public class Astro {
 	double jd;
 	double dec[] = new double[3];

@@ -1,15 +1,7 @@
-/**
- * 
- */
 package com.alpha.pt;
 
 import com.alpha.mMath.mMath;
 
-
-/**
- * @author Alaa
- *
- */
 public class Astronomy {
 	public static final double INVALID_TRIGGER= 1;
 	public static final double PI= 3.1415926535898;

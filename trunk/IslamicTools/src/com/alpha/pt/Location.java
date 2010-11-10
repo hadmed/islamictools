@@ -1,12 +1,7 @@
-/**
- * 
- */
+
 package com.alpha.pt;
 
-/**
- * @author Alaa
- *
- */
+
 public class Location     {
 	public double degreeLong;  /* Longitude in decimal degree. */
 	public double degreeLat;   /* Latitude in decimal degree. */

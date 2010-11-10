@@ -1,19 +1,5 @@
 package com.alpha;
-/*
- *	Date : 8th of June 2009
- *	the class is Arabic string reshaper Utilities, this class is targeting Android platform
- *
- * 	By		: Amr Ismail Gawish
- *  E-Mail 	: amr.gawish@gmail.com
- *  Web		: http://www.amr-gawish.com
- *  
- *  Updated : 8th of June 2009
- *  Adding comments and Announcing Open Source
- *  
- * Updated: 6th of May 2010
- * Enahancing Functionality by Amine : bakhtout@gmail.com
- *
- * */
+
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -21,12 +7,6 @@ import android.graphics.Typeface;
 import android.view.Gravity;
 import android.widget.TextView;
 
-/**
- * This class is the main class that is responsible for Reshaping Arabic Sentences and Text
- * Utilities Class to make it easier to deal with Arabic Reshaper Class
- * Wrapper for Arabic Reshaper Class
- * @author Amr Gawish
- */
 public class ArabicUtilities {
 
          /**

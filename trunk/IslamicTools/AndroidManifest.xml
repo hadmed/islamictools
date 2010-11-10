@@ -23,7 +23,7 @@
             </intent-filter>
 
 </receiver>
-<service android:name="com.alpha.commun.UpdateService"></service>
+<service android:name="com.alpha.commun.MajService"></service>
 <activity android:name="CityView" android:screenOrientation="portrait"></activity>
 <activity android:name="CalendarView" android:screenOrientation="portrait"></activity>
 <activity android:name="CompassTest" android:screenOrientation="portrait"></activity>
