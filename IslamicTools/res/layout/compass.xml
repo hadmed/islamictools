@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_vertical|center_horizontal"  >      
+<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent">
+
+<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" 
+android:text="@string/pt_location"/>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+android:text="@string/noParam" android:id="@+id/pt_location" />
+
+</LinearLayout>
+ 
+ <ImageView
+ android:id = "@+id/compassId"
+android:layout_width="220px"
+android:layout_height="220px"
+android:layout_gravity="center_horizontal"
+android:src="@drawable/compass_back"
+android:background="#00ffce"
+/>
+  
+</LinearLayout>

@@ -1,0 +1,145 @@
+<resources>
+<style name="Widget">
+	<item name="android:background">@drawable/bkg</item>
+	<item name="android:orientation">vertical</item>
+	<item name="android:layout_width">294dp</item>
+	<item name="android:layout_height">152dp</item>
+</style>
+<!-- Layout  -->
+<style name="PrayerLayout">
+	<item name="android:orientation">horizontal</item>
+	<item name="android:layout_width">fill_parent</item>
+</style>	
+<style name="PrayerLayout.Name">
+	<item name="android:layout_height">wrap_content</item>
+</style>
+<style name="PrayerLayout.Time">
+	<item name="android:background">#000000</item>
+	<item name="android:layout_height">wrap_content</item>
+</style>
+<style name="PrayerLayout.Hadith">
+	<item name="android:layout_height">90dp</item>
+	<item name="android:gravity">center_vertical</item>
+</style>
+<!-- Prayer Texte Name/Time -->
+<style name="Prayer">
+	<item name="android:layout_width">48dp</item> 
+	<item name="android:gravity">center</item>
+	<item name="android:layout_height">wrap_content</item>
+</style>
+<style name="Prayer.Name">
+	<item name="android:textSize">12sp</item> 
+	<item name="android:textColor">#FFFFFF</item> 
+</style>		
+<style name="Prayer.Time">
+	<item name="android:textSize">14sp</item>
+	<item name="android:text">00:00</item>
+</style>
+<style name="Hadith">
+	<item name="android:layout_width">fill_parent</item> 
+	<item name="android:text">@string/loading</item>
+	<item name="android:layout_height">wrap_content</item> 
+</style>
+<style name="Hadith.Text">
+	<item name="android:gravity">center_horizontal</item>
+	<item name="android:textColor">#FFFFFF</item>
+	<item name="android:textSize">12sp</item>
+</style>
+<style name="Hadith.Source">
+	<item name="android:gravity">right</item>
+	<item name="android:textStyle">italic</item>
+	<item name="android:paddingRight">3dp</item>
+	<item name="android:textColor">#C00000</item>
+	<item name="android:textSize">11sp</item>
+</style>
+
+<style name="Menu">
+	<item name="android:background">@drawable/bkg</item>
+	<item name="android:orientation">vertical</item>
+	<item name="android:layout_width">fill_parent</item>
+	<item name="android:layout_height">fill_parent</item>
+</style>
+<style name="Titre">
+	 <item name="android:layout_width">fill_parent</item>   
+	 <item name="android:gravity">center</item>
+	 <item name="android:layout_height">36dp</item> 
+	 <item name="android:textColor">#FFFFFF</item>
+	 <item name="android:textSize">16dip</item>
+	 <item name="android:background">@drawable/bkg</item>
+</style>
+<style name="CadreLayout">
+	<item name="android:orientation">horizontal</item>
+	<item name="android:layout_width">fill_parent</item>
+	<item name="android:layout_height">wrap_content</item>
+	<item name="android:background">@drawable/bkg</item>
+</style>
+<style name="CadreCompassLayout">
+	<item name="android:orientation">vertical</item>
+	<item name="android:layout_width">fill_parent</item>
+	<item name="android:layout_height">fill_parent</item>
+	<item name="android:background">@drawable/bkg</item>
+	<item name="android:gravity">center</item>
+	<item name="android:paddingLeft">20dip</item>
+</style>
+<style name="CadreCenterLayout">
+	<item name="android:orientation">horizontal</item>
+	<item name="android:layout_width">fill_parent</item>
+	<item name="android:layout_height">wrap_content</item>
+	<item name="android:gravity">center</item>
+</style>
+<style name="CadreHadithLayout">
+	<item name="android:orientation">vertical</item>
+	<item name="android:layout_width">fill_parent</item>
+	<item name="android:layout_height">wrap_content</item>
+	<!-- <item name="android:background">@drawable/sam_hadith</item> -->
+	<item name="android:background">@drawable/bkg</item> 
+</style>
+
+<style name="PrayerTable">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:paddingTop">4dip</item>
+</style>
+<style name="TablePrayer">
+</style>
+<style name="TablePrayer.Name">
+	<item name="android:layout_width">76dip</item>   
+	<item name="android:gravity">right</item>
+	<item name="android:layout_height">wrap_content</item>   
+	<item name="android:textColor">#FFFFFF</item>
+</style>
+<style name="TablePrayer.Time">
+	<item name="android:layout_width">wrap_content</item>   
+	<item name="android:gravity">left</item>
+	<item name="android:layout_height">wrap_content</item>   
+	<item name="android:textColor">#FFFFFF</item>
+	<item name="android:paddingLeft">10px</item> 
+	<item name="android:text">00:00</item> 
+</style>
+
+<style name="Qibla">
+</style>
+<style name="Qibla.Name">
+	<item name="android:layout_width">wrap_content</item>   
+	<item name="android:gravity">right</item>
+	<item name="android:layout_height">wrap_content</item>   
+	<item name="android:textColor">#FFFFFF</item>
+</style>
+<style name="Qibla.Position">
+	<item name="android:layout_width">wrap_content</item>   
+	<item name="android:gravity">left</item>
+	<item name="android:layout_height">wrap_content</item>   
+	<item name="android:textColor">#FFFFFF</item>
+</style>
+ 
+<style name="CalData">
+	<item name="android:layout_width">fill_parent</item>   
+	<item name="android:layout_height">wrap_content</item>   
+	<item name="android:textColor">#FFFFFF</item>
+	<item name="android:gravity">center</item>
+	<item name="android:layout_weight">1.0</item>
+	<item name="android:text">00:00</item>
+	<item name="android:textSize">12dip</item>	
+	
+</style> 
+</resources>

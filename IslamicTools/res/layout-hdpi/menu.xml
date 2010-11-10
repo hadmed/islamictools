@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Menu" >
+<TextView style="@style/Titre" android:text="@string/noParam"  android:id = "@+id/pt_location" />
+<LinearLayout style="@style/CadreLayout" >
+
+<TableLayout style="@style/PrayerTable" android:id = "@+id/pt_table" >
+<TableRow>
+  <TextView style="@style/TablePrayer.Name"  android:text = "@string/pt_fadjr" />
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_fadjr" />
+ </TableRow>
+ <TableRow>
+  <TextView style="@style/TablePrayer.Name" android:text = "@string/pt_shurooq" />
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_shurooq" />
+  </TableRow> 
+ <TableRow>
+  <TextView style="@style/TablePrayer.Name" android:text = "@string/pt_zuhr" />
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_zuhr" />
+  </TableRow> 
+ <TableRow>
+  <TextView style="@style/TablePrayer.Name" android:text = "@string/pt_asr" />
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_asr" />
+  </TableRow> 
+ <TableRow>
+  <TextView style="@style/TablePrayer.Name" android:text = "@string/pt_maghrib" />
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_maghrib" />
+  </TableRow> 
+ <TableRow>
+  <TextView style="@style/TablePrayer.Name" android:text = "@string/pt_isha"/>
+  <TextView style="@style/TablePrayer.Time" android:id = "@+id/pt_isha" />
+  </TableRow>
+  </TableLayout>
+<LinearLayout style="@style/CadreCompassLayout" >
+<com.alpha.view.Compass android:layout_width="90dip"
+    android:layout_height="90dip" android:id="@+id/bCompassView" ></com.alpha.view.Compass>  
+<!--     
+    <ImageView android:src="@drawable/compass"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bCompass" />   -->
+	<LinearLayout  style="@style/CadreCenterLayout"  >
+	  <TextView  style="@style/Qibla.Name" android:text="@string/pt_qibla" />
+	  <TextView  style="@style/Qibla.Position" android:id = "@+id/pt_qibla" />
+	</LinearLayout>
+
+</LinearLayout>	 
+</LinearLayout>  
+<LinearLayout style="@style/CadreHadithLayout" >
+<!-- <ScrollView 
+	android:layout_width="fill_parent" 
+	android:layout_height="80dip"
+	android:layout_gravity="center_vertical"
+> -->
+<TextView
+	android:layout_width="fill_parent" android:gravity="center|center_vertical" 
+	android:layout_height="96dip"  android:id="@+id/wHadith"
+	android:text="[Hadith]"
+	android:textColor="#FFFFFF" android:textSize="11px"
+	android:scrollbars="vertical" 
+/>
+<!-- </ScrollView>  -->
+
+<TextView
+	android:layout_width="fill_parent" android:gravity="right|bottom" 
+	android:layout_height="wrap_content" android:id="@+id/wHadithSrc"
+	android:text="[srcHadith]" android:textStyle="italic"
+	android:textColor="#FF0000" android:textSize="11px"
+/>
+</LinearLayout>
+<LinearLayout 
+    android:orientation="horizontal"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    
+    <ImageView android:src="@drawable/quran"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bQuran"
+    />
+    <ImageView android:src="@drawable/noms99"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bName"
+    />
+
+    <ImageView android:src="@drawable/m"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bHadith"
+    />
+    </LinearLayout>
+<LinearLayout 
+    android:orientation="horizontal"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:gravity="bottom|right">
+    <ImageView android:src="@drawable/config"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/bParam"
+    />  
+    </LinearLayout>
+</LinearLayout>
