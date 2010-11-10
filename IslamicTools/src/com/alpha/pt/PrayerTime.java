@@ -5,10 +5,6 @@ package com.alpha.pt;
 
 import com.alpha.mMath.mMath;
 
-/**
- * @author Alaa
- *
- */
 public class PrayerTime {
 
 	public static final double KAABA_LAT =21.423333;

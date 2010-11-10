@@ -1,45 +1,11 @@
 package com.alpha;
 
-/*
- *	Date : 25th of March 2008
- *	the class is Arabic string reshaper, this class is targeting Android platform
- *
- * 	By		: Ahmed Essam Naiem
- *  E-Mail 	: ahmed-essam@live.com
- *  Web		: www.ahmed-essam.com
- *  
- *  Updated Date : 20 of March 2009
- *  The class has been updated to include the Lam Alef Reshaping techniques
- *  
- *  By		: Amr Ismail gawish
- *  Email   : amr.gawish@gmail.com
- *  Web		: www.amr-gawish.com
- *  
- *  Updated : 8th of June 2009
- *  Adding comments and Announcing Open Source
- *  
- * Updated: 6th of May 2010
- * Enahancing Functionality by Amine : bakhtout@gmail.com
- *
- *
- * */
 public class ArabicReshaper{
-	/**
-	 * The reshaped Word String
-	 */
 	private String _returnString;
-
-
-	/**
-	 * The Reshaped Word
-	 * @return reshaped Word
-	 */
 	public String getReshapedWord(){
 
 		return _returnString;
 	}
-
-
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_UPPER_MDD = 0x0622;
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_UPPER_HAMAZA = 0x0623;
 	public static char DEFINED_CHARACTERS_ORGINAL_ALF_LOWER_HAMAZA = 0x0625;	
@@ -95,13 +61,6 @@ public class ArabicReshaper{
 			{ 1574,65161,65163,65163,65162,2 } ,
 			{ 1610,65265,65267,65268,65266,4 } };
 
-
-	/**
-	 * Searching for the letter and Get the right shape for the character depends on the location specified 
-	 * @param target The character that needs to get its form
-	 * @param location The location of the Form letter
-	 * @return The letter with its right shape
-	 */
 	private char getReshapedGlphy(char target,int location){
 		//Iterate over the 36 characters in the GLPHIES Matrix
 		for(int n = 0; n<ARABIC_GLPHIES.length;n++)
@@ -117,11 +76,6 @@ public class ArabicReshaper{
 		return target;
 	}
 
-	/**
-	 * Define which Character Type is This, that has 2,3 or 4 Forms variation?
-	 * @param target The character, that needed 
-	 * @return the integer number indicated the Number of forms the Character has, return 2 otherwise
-	 */
 	private int getGlphyType(char target){
 		//Iterate over the 36 characters in the GLPHIES Matrix
 		for(int n = 0; n<36;n++)
@@ -136,13 +90,6 @@ public class ArabicReshaper{
 	}
 
 
-	/**
-	 * Get LamAlef right Character Presentation of the character
-	 * @param candidateAlef The letter that is supposed to Alef
-	 * @param candidateLam The letter that is supposed to Lam
-	 * @param isEndOfWord Is those characters at the end of the Word, to get its right form 
-	 * @return Reshaped character of the LamAlef
-	 */
 	private char getLamAlef(char candidateAlef,char candidateLam,boolean isEndOfWord){
 		//The shift rate, depends if the the end of the word or not!
 		int shiftRate = 1;

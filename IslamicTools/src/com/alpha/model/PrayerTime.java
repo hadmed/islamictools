@@ -4,10 +4,6 @@ import java.util.Calendar;
 
 import com.alpha.commun.utils;
 
-/**
- * @author Alaa
- *
- */
 public class PrayerTime {
 	private int year,month,day,hour,minute,second;
 

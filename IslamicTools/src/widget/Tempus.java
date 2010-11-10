@@ -3,7 +3,7 @@ package widget;
 import java.util.Calendar;
 
 import com.alpha.commun.HadithList;
-import com.alpha.commun.UpdateService;
+import com.alpha.commun.MajService;
 import com.alpha.model.PT;
 import com.alpha.model.PrayerTime;
 import com.alpha.model.Settings;
@@ -38,8 +38,8 @@ public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] a
    
    appWidgetManager.updateAppWidget(appWidgetIds[0],  updateAppWidget(context));
 
-  UpdateService.requestUpdate(appWidgetIds);
-  context.startService(new Intent(context, UpdateService.class));
+  MajService.requestUpdate(appWidgetIds);
+  context.startService(new Intent(context, MajService.class));
 
 
 }
@@ -76,8 +76,8 @@ public static RemoteViews updateAppWidget(Context context) {
 */
   
      //special SAM
-  Intent updateIntent = new Intent(UpdateService.ACTION_UPDATE_ALL);
-  updateIntent.setClass(context, UpdateService.class);
+  Intent updateIntent = new Intent(MajService.ACTION_UPDATE_ALL);
+  updateIntent.setClass(context, MajService.class);
   PendingIntent pendingIntent = PendingIntent.getService(context, 0, updateIntent, 0);
 
   RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.tempus_widget);

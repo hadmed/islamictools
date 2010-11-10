@@ -1,13 +1,5 @@
-/**
- * 
- */
 package com.alpha.pt;
 
-
-/**
- * @author Alaa
- *
- */
 public class Date{
 	public Date(Date date) {
 		this.day = date.day;

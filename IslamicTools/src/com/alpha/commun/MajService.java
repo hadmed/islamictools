@@ -24,7 +24,7 @@ import android.widget.RemoteViews;
  * {@link WebserviceHelper} as needed to fill database. Also handles scheduling
  * of future updates, usually in 6-hour increments.
  */
-public class UpdateService extends Service implements Runnable {
+public class MajService extends Service implements Runnable {
     private static final String TAG = "samUpdate";
     private static final long UPDATE_INTERVAL = 1 * DateUtils.MINUTE_IN_MILLIS;
     private static final long UPDATE_THROTTLE = 1 * DateUtils.MINUTE_IN_MILLIS;
@@ -175,7 +175,7 @@ public class UpdateService extends Service implements Runnable {
         Log.d(TAG, "Requesting next update at " + nextUpdate + ", in " + deltaMinutes + " min");
 
         Intent updateIntent = new Intent(ACTION_UPDATE_ALL);
-        updateIntent.setClass(this, UpdateService.class);
+        updateIntent.setClass(this, MajService.class);
 
         PendingIntent pendingIntent = PendingIntent.getService(this, 0, updateIntent, 0);
 
