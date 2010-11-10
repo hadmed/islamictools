@@ -1,0 +1,73 @@
+#summary One-sentence summary of this page.
+
+= Corrections/Améliorations =
+
+*Version 0.1a (10/11/2010)*
+
+*Programme*<br>
+_ajout de version_<br>
+_correction bug orientation horizontale_<br><br>	
+*Tafsir (exégèse)*<br>
+_ajout des tasfirs manquant_<br>
+_tafsir invisible si pas de lien_<br>
+_correction de l'encodage du texte, passage en UTF-8_<br>
+_suppression des hyperlinks_<br><br>
+
+= Reste à faire (TODO) =
+
+*programme (général, design)*
+
+-ajout DB ?<br>
+
+-terminer le paramétrage
+	-choix du thème<br>
+	-choix du pays, position GPS, saisie manuelle<br>
+	-sauvegarde/restauration des paramètre<br>
+	-horaire de prière (decalage +/- minutes)<br>
+	-parametrage de l'alarme pour les heure de prière<br>
+	-choix des langues (+affichage/non de la phonétique) 
+	
++ajout cartographie
+	-direction qibla par geodésie (adaptation de mon programme : http://www.javascriptfr.com/codes/DIRECTION-MECQUE-AVEC-GOOGLE-MAP_49474.aspx)
+
++ajout des duhaas (la citadelle du musulman)
+
+-detection GPS,Boussole, connexion internet
+
+*Widget*
+	-ajout de l'alarme
+
+*Coran*
+	-corriger le "_" dans le texte arabe<br>
+	-ajoute audio<br>
+	-terminer la synchro avec audio
+
+*Tafsir*
+	-tafsir (S2/172), txt arabe<br>
+	-tafsir (S4/fin), pb de couleur (balise non fermé)<br>
+	-tafsir (S14/27), codage caractère <br>
+	-tafsir (S23/51), txt arabe<br>
+	-continuer analyse après S33
+
+*Horaire de prière*
+	-terminer le calendrier<br>
+	-ajout du jour (Lundi,...)<br>
+	-jour férié arabe<br>
+	-calendrier en arabe
+
+*Compass*
+	-terminer le big compass<br>
+	-orientation accéléromètre + boussole
+
+*Hadith*
+	+ecran de visualisation de tout les hadith<br>
+	-changement de hadith<br>
+	-ordre aléatoire
+
+*99 noms d'allah*
+	-recitation des noms ? <br>
+	-animation
+
+*40 hadiths*
+	-group expendable<br>
+	-sauvegarde dans une DB
