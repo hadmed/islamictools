@@ -88,6 +88,13 @@
     android:layout_height="60dip"
     android:id="@+id/bHadith"
     />
+    
+    <ImageView android:src="@drawable/map"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bMap"
+    />
+    
     </LinearLayout>
 <LinearLayout 
     android:orientation="horizontal"
