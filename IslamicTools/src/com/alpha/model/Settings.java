@@ -118,4 +118,14 @@ public class Settings {
 	{
 		return (this.dst>0 ) ? 1 : 0;
 	}
+
+	public static double getQibla_Lat()
+	{
+		return qibla_Lat;
+	}
+
+	public static double getQibla_Lon()
+	{
+		return qibla_Lon;
+	}
 }

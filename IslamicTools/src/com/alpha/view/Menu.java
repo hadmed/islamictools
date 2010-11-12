@@ -65,9 +65,9 @@ private void setImageClick()
    ((Compass)findViewById(R.id.bCompassView)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {startActivity(new Intent(mContext, CompassTest.class));}});
    
- /*  ((ImageView)findViewById(R.id.bCompass)).setOnClickListener(new View.OnClickListener() {
-  	  public void onClick(View view) {startActivity(new Intent(mContext, Tutorial2D.class));}});
-   */
+  ((ImageView)findViewById(R.id.bMap)).setOnClickListener(new View.OnClickListener() {
+  	  public void onClick(View view) {startActivity(new Intent(mContext, SamMapView.class));}});
+   
    ((ImageView)findViewById(R.id.bName)).setOnClickListener(new View.OnClickListener() {
   	  public void onClick(View view) {startActivity(new Intent(mContext, NameAllah.class));}});
 
