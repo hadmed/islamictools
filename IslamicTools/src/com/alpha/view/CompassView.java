@@ -36,10 +36,11 @@ public static class SampleView extends View implements SensorEventListener {
    private int angle,boussole;
    private final Matrix mMatrix = new Matrix();
    private final int x,y;
-   private Settings setting = Settings.getInstance(); 
+   private Settings setting; 
    
    public SampleView(Context context) {
        super(context);
+       this.setting = Settings.getInstance(context);
        setFocusable(true);
 
        mBitmap = BitmapFactory.decodeResource(getResources(),

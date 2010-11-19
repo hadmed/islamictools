@@ -21,7 +21,7 @@ public class Compass extends View implements SensorEventListener
    private int angle,boussole;
    private final Matrix mMatrix = new Matrix();
    private final int x,y;
-   private Settings setting = Settings.getInstance(); 
+   private Settings setting; 
 
 	public Compass(Context context)
 	{
@@ -39,6 +39,7 @@ public class Compass extends View implements SensorEventListener
 	public Compass(Context context, AttributeSet attrs, int defStyle)
 	{
 		super(context,attrs);
+		this.setting = Settings.getInstance(context);
       mBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.compass_back);
 		angle = 0;
 		boussole = 0;

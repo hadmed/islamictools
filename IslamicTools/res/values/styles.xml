@@ -70,7 +70,7 @@
 <style name="CadreLayout">
 	<item name="android:orientation">horizontal</item>
 	<item name="android:layout_width">fill_parent</item>
-	<item name="android:layout_height">wrap_content</item>
+	<item name="android:layout_height">150dip</item>
 	<item name="android:background">@drawable/bkg</item>
 </style>
 <style name="CadreCompassLayout">
@@ -90,7 +90,7 @@
 <style name="CadreHadithLayout">
 	<item name="android:orientation">vertical</item>
 	<item name="android:layout_width">fill_parent</item>
-	<item name="android:layout_height">wrap_content</item>
+	<item name="android:layout_height">120dip</item>
 	<!-- <item name="android:background">@drawable/sam_hadith</item> -->
 	<item name="android:background">@drawable/bkg</item> 
 </style>
@@ -133,7 +133,7 @@
 </style>
  
 <style name="CalData">
-	<item name="android:layout_width">fill_parent</item>   
+	<item name="android:layout_width">wrap_content</item>   
 	<item name="android:layout_height">wrap_content</item>   
 	<item name="android:textColor">#FFFFFF</item>
 	<item name="android:gravity">center</item>

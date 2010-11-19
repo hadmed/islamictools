@@ -1,6 +1,8 @@
 package com.alpha.view;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.alpha.model.PT;
 import com.alpha.model.PrayerTime;
@@ -14,15 +16,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CalendarView extends ListActivity 
 {
 	  private static class EfficientAdapter extends BaseAdapter {      
-		  
+			private Context context;		  
 			 private LayoutInflater mInflater;
+			 private static int today = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+			 private Map<Integer,String> dayOfWeek;
 		     public EfficientAdapter(Context context) {
+		   	  dayOfWeek = new HashMap<Integer, String>();
+		   	  dayOfWeek.put(Calendar.MONDAY, "Lun.");
+		   	  dayOfWeek.put(Calendar.TUESDAY, "Mar.");
+		   	  dayOfWeek.put(Calendar.WEDNESDAY, "Mer.");
+		   	  dayOfWeek.put(Calendar.THURSDAY, "Jeu.");
+		   	  dayOfWeek.put(Calendar.FRIDAY, "Ven.");
+		   	  dayOfWeek.put(Calendar.SATURDAY, "Sam.");
+		   	  dayOfWeek.put(Calendar.SUNDAY, "Dim.");
+		   	  this.context = context;		   	  
 		   	  mInflater = LayoutInflater.from(context);
 		     }
 		     public int getCount() {
@@ -39,6 +54,7 @@ public class CalendarView extends ListActivity
 		         if (convertView == null) {
 		             convertView = mInflater.inflate(R.layout.calendar, null);
 		             holder = new ViewHolder();
+		             holder.background = (LinearLayout) convertView.findViewById(R.id.calBackground);
 		             holder.date = (TextView) convertView.findViewById(R.id.calDate);
 		             holder.fajr = (TextView) convertView.findViewById(R.id.calFajr);
 		             holder.shurooq = (TextView) convertView.findViewById(R.id.calShurooq);
@@ -51,11 +67,13 @@ public class CalendarView extends ListActivity
 		         } else {
 		             holder = (ViewHolder) convertView.getTag();
 		         }
-		         
 		         try
-		         {    switch (position)
+		         {    
+		         switch (position)
 		         	{
-		         case 0:holder.date.setText("Date");
+		         case 0:
+		          holder.background.setBackgroundColor(0xFF008800);
+		          holder.date.setText("Date");
 	             holder.fajr.setText("Fajr");
 	             holder.shurooq.setText("Shurooq");
 	             holder.zuhr.setText("Zuhr");
@@ -64,11 +82,16 @@ public class CalendarView extends ListActivity
 	             holder.isha.setText("Isha");
 		         	break;
 		         default :
-		            Settings settings = Settings.getInstance();
+		            Settings settings = Settings.getInstance(this.context);
 		      		Calendar now = Calendar.getInstance();
-		      	PrayerTime[] prayerTimes = PT.getPrayerTimes(now.get(Calendar.YEAR), now.get(Calendar.MONTH) +1, position, settings.getLat(), settings.getLon(), settings.getGmt(),0,settings.getMethod());
+		      		now.set(Calendar.DAY_OF_MONTH, position);
+		      		
+		      	PrayerTime[] prayerTimes = PT.getPrayerTimes(now.get(Calendar.YEAR), now.get(Calendar.MONTH)+1, now.get(Calendar.DAY_OF_MONTH), settings.getLat(), settings.getLon(), settings.getGmt2(),0,settings.getMethod());
 		      	
-		      		holder.date.setText(""+(position)+"/"+(now.get(Calendar.MONTH) +1));
+		          	holder.background.setBackgroundColor((position==today)?0xFF8888CE:0xFF000000);
+		          	
+		          	
+		      		holder.date.setText(dayOfWeek.get(now.get(Calendar.DAY_OF_WEEK))+" "+(position<10?"0":"")+position+"/"+(now.get(Calendar.MONTH) +1));
 		            holder.fajr.setText(prayerTimes[0].getTime2());
 		            holder.shurooq.setText(prayerTimes[1].getTime2());
 		            holder.zuhr.setText(prayerTimes[2].getTime2());
@@ -82,6 +105,7 @@ public class CalendarView extends ListActivity
 		     }
 
 		     static class ViewHolder {
+		   	LinearLayout background;
 		     	TextView date;
 		     	TextView fajr;
 		     	TextView shurooq;
@@ -102,8 +126,11 @@ public class CalendarView extends ListActivity
 			public void onCreate(Bundle savedInstanceState) {
 			       super.onCreate(savedInstanceState);
 			       requestWindowFeature(Window.FEATURE_NO_TITLE);	       
+			        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+			                WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 			       setListAdapter(new EfficientAdapter(this));
-			   }
+
+			}
 /*
 		   protected void onListItemClick(ListView l, View v, int position, long id) {
 		      //Map map = (Map) l.getItemAtPosition(position);

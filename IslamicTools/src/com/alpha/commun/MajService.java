@@ -25,7 +25,7 @@ import android.widget.RemoteViews;
  * of future updates, usually in 6-hour increments.
  */
 public class MajService extends Service implements Runnable {
-    private static final String TAG = "samUpdate";
+    private static final String TAG = "sam";
     private static final long UPDATE_INTERVAL = 1 * DateUtils.MINUTE_IN_MILLIS;
     private static final long UPDATE_THROTTLE = 1 * DateUtils.MINUTE_IN_MILLIS;
     private static Object sLock = new Object();
@@ -99,12 +99,12 @@ public class MajService extends Service implements Runnable {
     @Override
     public void onStart(Intent intent, int startId) {
    	 super.onStart(intent, startId);
-       Log.d(TAG, "****onStart Service **** : ");
-       Log.d(TAG, "action : "+intent.getAction());
+       //Log.d(TAG, "****onStart Service **** : ");
+       //Log.d(TAG, "action : "+intent.getAction());
         
         // If requested, trigger update of all widgets
         if (ACTION_UPDATE_ALL.equals(intent.getAction())) {
-            Log.d(TAG, "Requested UPDATE_ALL action");
+            //Log.d(TAG, "Requested UPDATE_ALL action");
             AppWidgetManager manager = AppWidgetManager.getInstance(this);
             requestUpdate(manager.getAppWidgetIds(new ComponentName(this, Tempus.class)));
         }
@@ -125,7 +125,7 @@ public class MajService extends Service implements Runnable {
      * remain. Also sets alarm to perform next update.
      */
     public void run() {
-        Log.d(TAG, "Processing thread started");
+        //Log.d(TAG, "Processing thread started");
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         //ContentResolver resolver = getContentResolver();
 
@@ -167,12 +167,12 @@ public class MajService extends Service implements Runnable {
 
         // Throttle our updates just in case the math went funky
         if (nextUpdate - nowMillis < UPDATE_THROTTLE) {
-            Log.d(TAG, "Calculated next update too early, throttling for a few minutes");
+            //Log.d(TAG, "Calculated next update too early, throttling for a few minutes");
             nextUpdate = nowMillis + UPDATE_THROTTLE;
         }
 
         long deltaMinutes = (nextUpdate - nowMillis) / DateUtils.MINUTE_IN_MILLIS;
-        Log.d(TAG, "Requesting next update at " + nextUpdate + ", in " + deltaMinutes + " min");
+        //Log.d(TAG, "Requesting next update at " + nextUpdate + ", in " + deltaMinutes + " min");
 
         Intent updateIntent = new Intent(ACTION_UPDATE_ALL);
         updateIntent.setClass(this, MajService.class);

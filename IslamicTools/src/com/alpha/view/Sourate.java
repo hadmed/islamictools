@@ -16,7 +16,6 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -130,18 +129,6 @@ public class Sourate extends ListActivity
           if (convertView == null) {
              convertView = mInflater.inflate(R.layout.trad,null);
              holder = new ViewHolder();
-              /*
-              holder.text = new TextView(mContext);
-              holder.text.setLayoutParams(new AbsListView.LayoutParams(LayoutParams.WRAP_CONTENT,
-                      LayoutParams.WRAP_CONTENT));
-              holder.text2 = new TextView(mContext);
-              holder.text2.setLayoutParams(new AbsListView.LayoutParams(LayoutParams.WRAP_CONTENT,
-                      LayoutParams.WRAP_CONTENT));
-              holder.text3 = new TextView(mContext);
-              holder.text3.setLayoutParams(new AbsListView.LayoutParams(LayoutParams.WRAP_CONTENT,
-                      LayoutParams.WRAP_CONTENT));
-              */
-              
               holder.text = (TextView) convertView.findViewById(R.id.text);
               holder.text2 = (TextView) convertView.findViewById(R.id.text2);
               holder.text3 = (TextView) convertView.findViewById(R.id.text3);
@@ -153,14 +140,9 @@ public class Sourate extends ListActivity
               manager = convertView.getContext().getAssets(); 
               try
               {
-              //manager.open("fonts/.ttf");
               holder.text.setTypeface(Typeface.createFromAsset(manager, "fonts/arial.ttf"));
               holder.text.setTextSize(22);
               holder.text.setTextColor(0xFF00FF00);
-              
-              
-              
-              //holder.text.setHeight(24);
               } catch(Exception ex){
               }
               holder.text2.setTextColor(0xFFc0c0c0);
@@ -192,8 +174,7 @@ public class Sourate extends ListActivity
           
           try
           {         	 
-         	 holder.text.setText(getArabicR(SOURATE_TXT.get("AR").get(position),position==0));
-         	 //holder.text.setText(SOURATE_TXT.get("AR").get(position));
+         	 holder.text.setText(getArabicR(SOURATE_TXT.get("AR").get(position),position==2));
              holder.text2.setText(SOURATE_TXT.get("PH").get(position)); 
              holder.text3.setText(SOURATE_TXT.get("FR").get(position)); 
           }catch(Exception ex){

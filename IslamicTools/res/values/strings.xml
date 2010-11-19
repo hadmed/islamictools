@@ -5,6 +5,7 @@
     <string name="version">version 0.1</string>
     <string name="paramHS">[paramètre non disponible pour le moment]</string>
     <string name="loading">[chargement...]</string>
+    <string name="save">sauvegarder</string>
     
     <string name="menu_title">Islamic Tools par Selim A.</string>    
     <string name="pt_location">Lieu :</string>
@@ -23,7 +24,7 @@
     <string name="param_dst">DST :</string>
     <string name="param_calcul">Méthode :</string>
     <string name="param_dst_toggle">DST</string>    
-
+    <string name="wi_max_libelle">Horaires/Hadiths</string>
     <string name="wi_fadjr">Fadjr</string>
     <string name="wi_shurooq">Shurooq</string>
     <string name="wi_zuhr">Zuhr</string>

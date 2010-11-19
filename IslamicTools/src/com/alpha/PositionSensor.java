@@ -44,7 +44,7 @@ public final class PositionSensor implements    LocationListener,
 
     private Bitmap bmp;
     private ImageView img;
-    
+    private Context context; 
     private long lastRefreshLayoutUpdate = System.currentTimeMillis();
  
     /**
@@ -53,8 +53,9 @@ public final class PositionSensor implements    LocationListener,
      * - la sonde orientation;
      * - la sonde GPS.
      */
-    public PositionSensor(Activity activity) {
+    public PositionSensor(Activity activity,Context context) {
         this.activity = activity;
+        this.context = context;
         this.img=(ImageView)this.activity.findViewById(R.id.compassId);
         this.bmp = BitmapFactory.decodeResource(this.activity.getResources(), R.drawable.compass_back);
         
@@ -73,7 +74,7 @@ public final class PositionSensor implements    LocationListener,
             if (currTime - lastRefreshLayoutUpdate < SENSOR_REFRESH_MS)
                 return;
             lastRefreshLayoutUpdate = System.currentTimeMillis();
-          Settings settings = Settings.getInstance();
+          Settings settings = Settings.getInstance(this.context);
          settings.setPosGps(latitude, longitude, altitude);         
          ((TextView)activity.findViewById(R.id.pt_location)).setText(settings.getLocation());
     }
@@ -140,7 +141,7 @@ public final class PositionSensor implements    LocationListener,
                 if (currTime - lastOrientationUpdate < SENSOR_REFRESH_MS)
                     break;
                 lastOrientationUpdate = System.currentTimeMillis();
-                Settings settings = Settings.getInstance();
+                Settings settings = Settings.getInstance(this.context);
                 settings.setAngle(values[0]);         
                 break;
         } 
