@@ -84,7 +84,7 @@ public static RemoteViews updateAppWidget(Context context) {
   views.setOnClickPendingIntent( R.id.widgetClick, pendingIntent);
   
   
-  Settings settings = Settings.getInstance();
+  Settings settings = Settings.getInstance(context);
 	Calendar now = Calendar.getInstance();
 	Log.d("sam", "dst : "+settings.getDst());
 	PrayerTime[] prayerTimes = PT.getPrayerTimes(now.get(Calendar.YEAR), now.get(Calendar.MONTH) +1, now.get(Calendar.DAY_OF_MONTH), settings.getLat(), settings.getLon(), settings.getGmt(),0,settings.getMethod());

@@ -4,9 +4,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center_vertical"
+    android:id="@+id/calBackground"
     >
      <TextView android:id="@+id/calDate"
      style="@style/CalData"
+     android:width="64dip"
  		/>
  		    
      <TextView android:id="@+id/calFajr"
@@ -14,6 +16,8 @@
  		/>
      <TextView android:id="@+id/calShurooq"
 		style="@style/CalData"
+		android:textSize="10px"
+		android:textColor="#cecece"
  		/>
      <TextView android:id="@+id/calZuhr"
 		style="@style/CalData"

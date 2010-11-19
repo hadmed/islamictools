@@ -4,6 +4,8 @@ import java.util.TimeZone;
 
 import com.alpha.commun.City;
 import com.alpha.commun.NumberPicker;
+import com.alpha.model.Settings;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
@@ -35,24 +37,14 @@ public class ParamView extends Activity
 			String[] ids = tz.getAvailableIDs();
 			
 			//tz.getDisplayName(locale)
-        Spinner s1 = (Spinner) findViewById(R.id.gmt_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, ids);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s1.setAdapter(adapter);
-	      
-/*	 		Object o = findViewById(R.id.picker);
-			try 
-			{
-			    Method m =  (o.getClass()).getMethod("setRange", int.class, int.class);
-			    m.invoke(o, 0, 9);
-			} 
-			catch (Exception e) 
-			{
-			    Log.e("", e.getMessage());
-			}
-			
-*/
+		  Spinner s1 = (Spinner) findViewById(R.id.gmt_list);
+		  ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+		  android.R.layout.simple_spinner_item, ids);
+		  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		  s1.setAdapter(adapter);
+	      //Settings set = Settings.getInstance(this);
+	      //set.setPosGps(17f, 35f, 0f);
+	      //set.save();
 	}
 
 }

@@ -19,7 +19,7 @@
 <activity android:name="ParamView" android:screenOrientation="portrait"></activity>
 <activity android:screenOrientation="portrait" android:name="NameAllah"></activity>
 <activity android:name="HadithView" android:screenOrientation="portrait"></activity>
-<receiver android:name="widget.Tempus">
+<receiver android:name="widget.Tempus" android:label="@string/wi_max_libelle">
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider" />
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -27,7 +27,7 @@
 
 </receiver>
 <service android:name="com.alpha.commun.MajService"></service>
-<activity android:name="CityView" android:screenOrientation="portrait"></activity>
+<activity android:name="ConfigCityView" android:screenOrientation="portrait"></activity>
 <activity android:name="CalendarView" android:screenOrientation="portrait"></activity>
 <activity android:name="CompassTest" android:screenOrientation="portrait"></activity>
 <activity android:name="SamMapView" android:screenOrientation="portrait" ></activity>

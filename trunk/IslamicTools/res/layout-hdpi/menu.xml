@@ -64,6 +64,7 @@
 	android:layout_height="wrap_content" android:id="@+id/wHadithSrc"
 	android:text="[srcHadith]" android:textStyle="italic"
 	android:textColor="#FF0000" android:textSize="11px"
+	android:paddingRight="8dip"
 />
 </LinearLayout>
 <LinearLayout 
@@ -94,16 +95,16 @@
     android:layout_height="60dip"
     android:id="@+id/bMap"
     />
-    
     </LinearLayout>
 <LinearLayout 
     android:orientation="horizontal"
     android:layout_width="fill_parent" 
     android:layout_height="fill_parent"
-    android:gravity="bottom|right">
+    android:gravity="bottom|right"
+    >
     <ImageView android:src="@drawable/config"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
     android:id="@+id/bParam"
     />  
     </LinearLayout>
