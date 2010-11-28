@@ -22,19 +22,25 @@ import android.widget.TextView;
 public class Menu extends Activity {
     /** Called when the activity is first created. */
    private Context mContext; 
-
+   private Activity activity;
+   private static int ParametreCode = 1;
 @Override
-    public void onCreate(Bundle savedInstanceState) {
-   	 
-        super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-              WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-        setContentView(R.layout.menu);
-        mContext= this;
-        setTimePrayer();
-        setImageClick();     
-    }
+ public void onCreate(Bundle savedInstanceState) {
+	 
+     super.onCreate(savedInstanceState);
+     getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
+           WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+     setContentView(R.layout.menu);
+     mContext= this;
+     activity = this;
+     this.reload();
+ }
 
+public void reload()
+{
+   setTimePrayer();
+   setImageClick();     	
+}
 
 private void setTimePrayer()
 {
@@ -77,17 +83,40 @@ private void setImageClick()
    ((ImageView)findViewById(R.id.bHadith)).setOnClickListener(new View.OnClickListener() {
    	  public void onClick(View view) {startActivity(new Intent(mContext, HadithView.class));}});
 
+   /*((ImageView)findViewById(R.id.bPlay)).setOnClickListener(new View.OnClickListener() {
+ 	  public void onClick(View view) {startActivity(new Intent(mContext, Mp3Split.class));}});
    ((ImageView)findViewById(R.id.bParam)).setOnClickListener(new View.OnClickListener() {
-   	  public void onClick(View view) {startActivity(new Intent(mContext, ParamView.class));}});
+   	  public void onClick(View view) {startActivityForResult(new Intent(mContext, ParamView.class),ParametreCode);
+   	  }});*/
+   ((ImageView)findViewById(R.id.bParam)).setOnClickListener(new View.OnClickListener() {
+ 	  public void onClick(View view) {
+ 		  //startActivity(new Intent(mContext, SettingsDialog.class));
+ 		  SettingsDialog sd = new SettingsDialog(mContext,activity);
+ 		  sd.show(); 
+ 	  }});
 
 	((TextView)findViewById(R.id.pt_location)).setOnClickListener(new View.OnClickListener() {
- 	  public void onClick(View view) {startActivity(new Intent(mContext, ConfigCityView.class));}});
+ 	  public void onClick(View view) {
+ 		  //startActivityForResult(new Intent(mContext, ConfigCityView.class),ParametreCode);
+ 		  ConfigCityView cvd = new ConfigCityView(mContext,activity);
+ 		  cvd.show();
+ 	  }});
 
 	((TableLayout)findViewById(R.id.pt_table)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {startActivity(new Intent(mContext, CalendarView.class));}});
    
 	/*"Coran","Horaire Prière","Boussole","Doua'a","99 noms d'Allah","Sermon Vendredi","Réglage","Exit"*/
 	
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data)
+{
+	if (requestCode == ParametreCode)
+	{
+	reload();
+	}
+	super.onActivityResult(requestCode, resultCode, data);
 }
 
 public Context getMContext()

@@ -1,208 +1,194 @@
 package com.alpha.view;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
-import com.alpha.commun.City;
+//import com.alpha.commun.City;
+import com.alpha.commun.CityDB;
 import com.alpha.model.Settings;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
-public class ConfigCityView extends Activity
+public class ConfigCityView extends Dialog implements OnItemSelectedListener
 {
-	private Position choix;
-	private Settings setting; 
+
+
+	//	private Position choix;
+	private Settings setting;
+	private Context  context;
+	private Activity activity;
+	private boolean start= false;
+	
+public ConfigCityView(Context context,Activity activity)
+{
+	super(context);
+	this.context = context;
+	this.activity = activity;
+   ((Compass)activity.findViewById(R.id.bCompassView)).setFreeze(true);
+}
+
+
+private static final class Zone { public static final int CONTINENT = 0,COUNTRY = 1, CITY = 3; };	
+	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setting = Settings.getInstance(this);
+	    setting = Settings.getInstance(context);
 	    requestWindowFeature(Window.FEATURE_NO_TITLE);
+	    // getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 	    setContentView(R.layout.city);
-	    this.setSpinner(R.id.spinContinent, City.Continent, 1, false);
-	    this.setSpinner(R.id.spinCountry, City.Pays, setting.getCountry(), true);
-	    int idxCity = setting.getCity();
-	    this.setSpinner(R.id.spinCity, City.city, idxCity, true);
-	    int[] pos = City.pos[idxCity];
+	    start= false;
+	    CityDB cb = new CityDB(context);
+ 	 	SQLiteDatabase db =  cb.getReadableDatabase();
+	    if (db!=null)
+	   	 {
+	   	 this.setSpinner2(R.id.spinContinent, 1, false, db, "continent", new String[] { "id", "txt"}, Zone.CONTINENT,null);
+	   	 this.setSpinner2(R.id.spinCountry, setting.getCountry(), true, db, "country", new String[] { "_id", "pays"}, Zone.COUNTRY,null);
+	   	 this.setSpinner2(R.id.spinCity, setting.getCity(), true, db, "city", new String[] { "_id", "ville","region"}, Zone.CITY,"idpays="+setting.getCountry());
+	   	 
+	   	 db.close();
+	   	 
+	   	 }
+	    start= true;
+	    this.infoCity();
 	    
-	    Spinner spin = (Spinner)findViewById(R.id.spinCity);
-	    spin.setOnItemSelectedListener(
-	            new OnItemSelectedListener() {
-	                public void onItemSelected(
-	                        AdapterView<?> parent, View view, int position, long id) {
-	               	 int[] pos = City.pos[position];
-	            	    choix = new Position(79,position,pos[0],pos[1],pos[2],pos[3]);
-	            	    setText(R.id.latparam, choix.getLatitude());
-	            	    setText(R.id.lonparam, choix.getLongitude());
-	            	    setText(R.id.gmtparam, choix.getTimezone());
-	            	    setText(R.id.dstparam,choix.isDaylight()?"on":"off");	    	        
-	                }
-
-	                public void onNothingSelected(AdapterView<?> parent) {
-	                    //setDefaultKeyMode(DEFAULT_KEYS_DISABLE);
-	                }
-	            });
-	    
-	    choix = new Position(79,idxCity,pos[0],pos[1],pos[2],pos[3]);
-	    setText(R.id.latparam, choix .getLatitude());
-	    setText(R.id.lonparam, choix .getLongitude());
-	    setText(R.id.gmtparam, choix .getTimezone());
-	    setText(R.id.dstparam,choix .isDaylight()?"on":"off");	    
+	    //((Spinner)findViewById(R.id.spinContinent)).setOnItemSelectedListener(this);
+	    ((Spinner)findViewById(R.id.spinCountry)).setOnItemSelectedListener(this);
+	    ((Spinner)findViewById(R.id.spinCity)).setOnItemSelectedListener(this);
 
 	    ((Button)findViewById(R.id.param_save)).setOnClickListener(
 	   		 new View.OnClickListener() {
 	  	   	  public void onClick(View view) {
-	  	   		  setting.setCity(choix.getLocation(),choix.getCountry(),choix.getCity(),choix.getLat(),choix.getLong(),choix.getGMT(),choix.getDaylight());
 	  	   		  setting.save();
+	  	   		  dismiss();
 	  	   	  }}
-	    );
-	    
+	    );	    
      	}
+
+@Override
+public void dismiss()
+{
+   ((Compass)activity.findViewById(R.id.bCompassView)).setFreeze(false);
+   ((Menu)activity).reload();
+   // TODO Auto-generated method stub
+	super.dismiss();
+	
+}
+
+
+private void infoCity()
+{
+   setText(R.id.latparam, setting.getLatString());
+   setText(R.id.lonparam, setting.getLonString());
+   setText(R.id.gmtparam, setting.getGmtString());
+   setText(R.id.dstparam,(setting.getDst()==1)?"on":"off");		
+}
+
 
 	private void setText(int id,String text)
 	{
 		TextView txt = (TextView) findViewById(id);
 		txt.setText(text);
 	}
-	private void setSpinner(int id,String[] src,int pos,boolean enabled)
+
+	private void setSpinner2(int id,int pos,boolean enabled,SQLiteDatabase db,String table,String[] colonne,int zone,String cond)
 	{
-	    Spinner spin = (Spinner) findViewById(id);
-	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, src); 
-	     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-	     spin.setAdapter(adapter);      
-	     spin.setSelection(pos); //france par defaut
-	     spin.setEnabled(enabled); 
+		try {
+		Cursor c = db.query(table, colonne, cond, null, null, null, null);
+		activity.startManagingCursor(c);
+		List<String> list = new ArrayList<String>(); 
+		String region;
+		while (c.moveToNext())
+		{
+			switch (zone)
+			{
+			case Zone.CONTINENT : 
+				list.add(c.getString(1));
+				break;
+			case Zone.COUNTRY : 
+				list.add(c.getString(1));
+				break;
+			case Zone.CITY : 
+				 region = c.getString(2);
+				 if (region!=null && !region.trim().equals(""))
+				 	{region = " ("+region.trim()+")";} else
+				 {region = "";}
+				list.add(c.getString(1)+region);
+				break;
+			
+			}
+		}
+		Spinner spin = (Spinner) findViewById(id);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, list.toArray(new String[0])); 
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spin.setAdapter(adapter);      
+		spin.setSelection(pos); //france par defaut
+		spin.setEnabled(enabled); 
+		c.close();
+		} catch(Exception ex) {
+			Log.d("sam",ex.getMessage());
+		}
 	}
+
+
+public void onItemSelected(AdapterView<?> source, View view, int idx, long idx2)
+{
+int idxCountry = setting.getCountry(),idxCity = setting.getCity();
+if (start)
+{
+	switch (source.getId())
+	{
+	case R.id.spinCity : 
+		//Log.d("sam","aa");
+		idxCity = idx;
+		break;
+	case R.id.spinContinent: 
+		//Log.d("sam","aa");
+		break;
+	case R.id.spinCountry : 
+		//Log.d("sam","aa");
+		if (idx != idxCountry)
+			{
+			idxCity = 0;
+			idxCountry = idx;
+			this.reloadCitys(idxCountry,idxCity);	
+			}
+		break;
+	}
+	setting.setCity(activity,idxCountry, idxCity);
+	this.infoCity();
+}
+}
+
+private void reloadCitys(int idxCountry,int idxCity)
+{
+   CityDB cb = new CityDB(context);
+	 	SQLiteDatabase db =  cb.getReadableDatabase();
+    if (db!=null)
+   	 {
+   	 this.setSpinner2(R.id.spinCity, idxCity, true, db, "city", new String[] { "_id", "ville","region"}, Zone.CITY,"idpays="+idxCountry);
+   	 db.close();
+   	 }	
+}
+
+public void onNothingSelected(AdapterView<?> arg0)
+{
+	// TODO Auto-generated method stub
 	
-   private List<String> getCity() {
-      List<String>dataList = new ArrayList<String>();
-      XmlPullParserFactory pullMaker;
-      try {
-          pullMaker = XmlPullParserFactory.newInstance();
-          XmlPullParser parser = pullMaker.newPullParser();
-          InputStream fis = getAssets().open("xml/gps.xml");
-          parser.setInput(fis, null);
-          int eventType = parser.getEventType();
-       	/*String city ="";
-       	String latitude ="",longitude ="",timezone ="",daylight ="";
-       	boolean inLatitude =false,inLongitude =false,inTimezone =false,inDaylight =false;
-       	Position pos ;*/
-       	
-          while (eventType != XmlPullParser.END_DOCUMENT) {
-              switch (eventType) {
-              case XmlPullParser.START_DOCUMENT:
-                  break;
-              case XmlPullParser.START_TAG:
-                  if (parser.getName().compareTo("country") == 0) {
-                  	dataList.add(parser.getAttributeValue(null, "name"));
-                  	//ss.append(parser.getAttributeValue(null, "name")+",");
-                  } else if (parser.getName().compareTo("city") == 0) {
-                  	//inLatitude =false;inLongitude =false;inTimezone =false;inDaylight =false;
-                  } else if (parser.getName().compareTo("latitude") == 0) {
-                  	//inLatitude =true;inLongitude =false;inTimezone =false;inDaylight =false;
-                  } else if (parser.getName().compareTo("longitude") == 0) {
-                     
-                  } else if (parser.getName().compareTo("timezone") == 0) {
-                     
-                  } else if (parser.getName().compareTo("daylight") == 0) {
-                     
-                  } 
-                  	
-                  break;
-              case XmlPullParser.END_TAG:
-                  if (parser.getName().equals("country")) {
-                  	//pos = new Position(0, 0, 0, 0);
-                  	
-                  } 
-                  break;
-              case XmlPullParser.TEXT:
-                 
-                  break;
-
-              }
-              eventType = parser.next();
-          }
-
-      } catch (Exception e) {
-          Log.e("sam", "Pull parser failed", e);
-      }
-      return dataList;
-  }
-
- 
-
-public class Position{
-	private int country,city;
-	private int latitude,longitude,timezone,daylight;
-	public Position(int country,int city,int latitude,int longitude,int timezone,int daylight)
-	{
-		this.city = city;
-		this.country = country;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.timezone = timezone;
-		this.daylight = daylight;
-	}
-	public String getLatitude()
-	{
-		return ""+((int)this.latitude/10000)+"°"+((int)this.latitude%10000);
-	}
-	public String getLongitude()
-	{
-		return ""+((int)this.longitude/10000)+"°"+((int)this.longitude%10000);
-	}
-	public double getLat()
-	{
-		return this.latitude;
-	}
-	public double getLong()
-	{
-		return this.longitude;
-	}
-	public int getGMT()
-	{
-		return this.timezone;
-	}
-
-	public String getTimezone()
-	{
-		return ""+((int)this.timezone/100)+":"+((int)this.timezone%100);
-	}
-	
-	public boolean isDaylight()
-	{
-		return this.daylight>0;
-	}
-	public int getDaylight()
-	{
-		return this.daylight;
-	}
-
-	public int getCountry()
-	{
-		return this.country;
-	}
-	public int getCity()
-	{
-		return this.city;
-	}
-	public String getLocation()
-	{	
-		return City.Pays[this.country]+","+City.city[this.city];	
-	}
 }
 }

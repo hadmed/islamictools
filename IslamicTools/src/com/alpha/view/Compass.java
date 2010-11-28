@@ -22,7 +22,7 @@ public class Compass extends View implements SensorEventListener
    private final Matrix mMatrix = new Matrix();
    private final int x,y;
    private Settings setting; 
-
+   private boolean freeze;
 	public Compass(Context context)
 	{
 		this(context,null);
@@ -43,15 +43,18 @@ public class Compass extends View implements SensorEventListener
       mBitmap = BitmapFactory.decodeResource(getResources(),R.drawable.compass_back);
 		angle = 0;
 		boussole = 0;
+		freeze = false;
 		x = mBitmap.getWidth()/2;
 		y = mBitmap.getHeight()/2;
-		SensorManager m = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
-		m.registerListener(this,m.getDefaultSensor(Sensor.TYPE_ORIENTATION),SensorManager.SENSOR_DELAY_NORMAL);
+		//SensorManager m = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
+		//m.registerListener(this,m.getDefaultSensor(Sensor.TYPE_ORIENTATION),SensorManager.SENSOR_DELAY_NORMAL);
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas)
 	{
+		if (!freeze)
+		{
       int angleFinal = (int) (boussole + setting.getDegQibla());
       angleFinal = (angleFinal+360)%360;
       angle = (angle+360)%360;
@@ -70,7 +73,7 @@ public class Compass extends View implements SensorEventListener
       mMatrix.setRotate((angle+360)%360, x, y);
       invalidate();
       canvas.drawBitmap(mBitmap, mMatrix, null);
-
+		}
 	}
 
 
@@ -80,6 +83,12 @@ public class Compass extends View implements SensorEventListener
 		
 	}
 
+	public void setFreeze(boolean freeze)
+	{
+		this.freeze = freeze;
+		invalidate();
+		//this.refreshDrawableState();
+	}
 
 	public void onSensorChanged(SensorEvent event)
 	{

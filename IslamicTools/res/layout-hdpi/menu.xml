@@ -95,6 +95,13 @@
     android:layout_height="60dip"
     android:id="@+id/bMap"
     />
+<!-- 
+    <ImageView android:src="@drawable/play"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bPlay"
+    /> -->
+
     </LinearLayout>
 <LinearLayout 
     android:orientation="horizontal"
@@ -102,6 +109,15 @@
     android:layout_height="fill_parent"
     android:gravity="bottom|right"
     >
+    <TextView 
+        android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:gravity="bottom|left"
+    android:text="Selim Amroune - amrounix@gmail.com"
+    android:textSize="10dip"
+    android:textStyle="bold|italic"
+    android:textColor="#80FFFFFF"
+    />
     <ImageView android:src="@drawable/config"
     android:layout_width="60dip"
     android:layout_height="60dip"
