@@ -140,6 +140,37 @@
 	<item name="android:layout_weight">1.0</item>
 	<item name="android:text">00:00</item>
 	<item name="android:textSize">12dip</item>	
-	
 </style> 
+<style name="SettingNotif">
+	<item name="android:layout_width">90dip</item> 
+	<item name="android:gravity">center</item>
+	<item name="android:layout_height">32dip</item>
+</style>
+<style name="SettingNotif.PrayerName">
+	<item name="android:textSize">14sp</item> 
+	<item name="android:textColor">#FFFFFF</item>
+</style>	
+<style name="SettingNotif.Titre">
+	<item name="android:textSize">16sp</item> 
+</style>	
+
+<style name="SettingCal">
+	<item name="android:layout_width">90dip</item> 
+	<item name="android:gravity">center</item>
+	<item name="android:layout_height">32dip</item>
+</style>
+<style name="SettingCal.PrayerName">
+	<item name="android:textSize">14sp</item> 
+	<item name="android:textColor">#FFFFFF</item>
+</style>	
+<style name="SettingCal.Min">
+	<item name="android:textSize">14sp</item> 
+	<item name="android:textColor">#FFFFFF</item>	
+	<item name="android:gravity">center_vertical|left</item>
+</style>	
+<style name="SettingCal.Titre">
+	<item name="android:textSize">16sp</item> 
+</style>	
+
+
 </resources>

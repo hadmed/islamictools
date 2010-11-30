@@ -281,7 +281,7 @@ public class Sourate extends ListActivity
 	  WebView wv = (WebView) findViewById(R.id.exegese);
 	  wv.loadUrl("javascript:location.href='#S"+(position+1)+"'");
 	  //l.getFocusedChild().setBackgroundColor(Color.BLUE);
-	  if (sourate == 1 || sourate == 2 ||sourate == 40 )
+	  //if (sourate == 1 || sourate == 2 ||sourate == 40 )
 	 {
 		  sp = SamPlayer.getInstance(Sourate.this,(TextView)findViewById(R.id.timing),l);
 		  sp.playSourate(sourate, position);

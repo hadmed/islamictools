@@ -32,8 +32,25 @@
     <string name="wi_maghrib">Maghrib</string>
     <string name="wi_isha">Isha</string>
 
+    <string name="set_parametre">Paramètrage</string>
+    <string name="set_position">position</string>
+    		<string name="set_pos_gps">Acquisition GPS</string>
+    <string name="set_notification">notification</string>
+	    	<string name="set_notif_titre">Paramètrage des alertes</string>
+    <string name="set_calcul">calcul</string>
+	    	<string name="set_calcul_titre">Paramètrage du calcul</string>
+	    	<string name="set_cal_min">min.</string>
+    <string name="set_theme">thème</string>
+    <string name="set_reciter">réciteur coranique</string>
+	    	<string name="set_rec_titre">Réciteur Coranique</string>
+	    	<string name="set_rec_folder">Répertoire :</string>
+    
+
+
     <string name="spinContinent">Choix du Continent</string>
     <string name="spinCountry">Choix du Pays</string>
     <string name="spinCity">Choix de la Ville</string>
+    
+    
     
 </resources>

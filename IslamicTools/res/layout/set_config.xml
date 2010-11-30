@@ -5,18 +5,23 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
- 	<Button android:id="@+id/set_position" android:text="position"
+  <TextView android:text="@string/set_parametre"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+  />
+  
+ 	<Button android:id="@+id/set_position" android:text="@string/set_position"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" />
 
-	<Button android:id="@+id/set_notification" android:text="notification"
+	<Button android:id="@+id/set_notification" android:text="@string/set_notification"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
-		android:enabled="false"
 		/>
-	<Button android:id="@+id/set_calcul" android:text="calcul"
+	<Button android:id="@+id/set_calcul" android:text="@string/set_calcul"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
-				android:enabled="false"
 		/>
-	<Button android:id="@+id/set_theme" android:text="Theme"
+	<Button android:id="@+id/set_reciter" android:text="@string/set_reciter"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		/>
+	<Button android:id="@+id/set_theme" android:text="@string/set_theme"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
 				android:enabled="false"
 		/>
