@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  >
+
+<TextView 
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+ android:text="@string/set_calcul_titre"
+ style="@style/SettingCal.Titre"
+/>
+
+<LinearLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+	<TextView style="@style/SettingCal.PrayerName" android:text="methode" />  
+	<Spinner android:id="@+id/set_cal_method"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input"  />
+</LinearLayout>
+<LinearLayout
+ android:layout_width="wrap_content"  android:layout_height="wrap_content"
+ android:orientation="horizontal" >
+ <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_fadjr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_shurooq" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_zuhr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_asr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_maghrib"/>
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_isha"/>
+</LinearLayout>
+<LinearLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >
+<EditText android:id="@+id/set_cal_fadjr"  android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_shurooq" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_zuhr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<EditText android:id="@+id/set_cal_asr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_maghrib" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<EditText android:id="@+id/set_cal_isha" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+
+</LinearLayout>
+<LinearLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+<TextView android:text="@string/set_cal_min" style="@style/SettingCal.Min" />
+</LinearLayout>
+</LinearLayout>
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="280dip"
+	android:layout_height="wrap_content"
+   android:layout_marginTop="10dip"
+	android:layout_gravity="center"
+	 >
+ <Button android:id="@+id/set_cal_reset"
+  	android:text="init"
+  	android:layout_width= "120dip"
+  	android:layout_height="wrap_content"	
+	android:gravity="center_horizontal|center_vertical"
+ />
+ <Button android:id="@+id/set_cal_save"
+  	android:text="@string/save"
+  	android:layout_width= "120dip"
+  	android:layout_height="wrap_content"	
+	android:gravity="center_horizontal|center_vertical"
+ />
+ </LinearLayout>
+</LinearLayout>

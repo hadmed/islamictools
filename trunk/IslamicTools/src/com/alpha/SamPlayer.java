@@ -1,5 +1,9 @@
 package com.alpha;
 
+import java.io.File;
+
+import com.alpha.model.Settings;
+
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
@@ -60,21 +64,16 @@ public class SamPlayer
 
 	};
 	 
-	private String folderQuran = "/sdcard/quran/";
+	private String folderQuran ; // = "/sdcard/quran/";
 	//private String[] srcSourate = {"/sdcard/quran/a002.mp3" , "/sdcard/quran/a002.mp3"};
 	
 	private String fileSourate(int sourate)
 	{
 		String str = folderQuran;
-		switch (sourate)
-		{
-		case 1 : str += "a001.mp3";break;
-		case 2 : str += "a002.mp3";break;
-		case 40 : str += "a040.mp3";break;
+		str += "/"+((sourate<100)?"0":"")+((sourate<10)?"0":"")+sourate+".mp3";
+		Log.d("sam","file : "+str);
 		
-		}
-		//str += "a"+((sourate<100)?"0":((sourate<10)?"0":"")+sourate)+".mp3";
-		return str;
+		return (new File(str)).exists() ? str : null;
 	}
 	
 	private SamPlayer(Context context)
@@ -101,19 +100,18 @@ public class SamPlayer
 		
 		this.sourate = sourate;
 		
+		if (fileSourate(sourate)== null)
+			return false;
+		
 		if (mp !=null)
 		{
-			mp.seekTo(posLecture[(sourate==40) ? 3 : sourate][verse]);
+			//mp.seekTo(posLecture[(sourate==40) ? 3 : sourate][verse]);
 			if (!mp.isPlaying())
 			{
 				mp.start();
 			}
-			//mp.stop();
-			//mp.reset();
-			//mp.start();
 		} else
 		{
-			//Log.d("sam", "lecture  "+fileSourate(sourate));
 			try{
 					mp = new MediaPlayer(); //.create(this.context, "/quran/a002.mp3");
 					mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -152,8 +150,7 @@ public class SamPlayer
 				   		}
 				   	}
 				  };	  
-				  handler.postDelayed(playerTask, 100);         
-				  //new Thread(playerTask).start();
+				  //handler.postDelayed(playerTask, 100);         
 
 			} catch (Exception ex)
 			{
@@ -178,6 +175,8 @@ public class SamPlayer
 	} 
 	instance.setTv(tv);
 	instance.setLv(lv);
+	instance.folderQuran = Settings.getInstance(context).getFolderQuran();
+	
 	return instance;	
 	}
 	

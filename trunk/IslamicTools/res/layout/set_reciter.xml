@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  >
+
+<TextView 
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+ android:text="@string/set_rec_titre"
+ style="@style/SettingCal.Titre"
+/>
+
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+	<Spinner android:id="@+id/set_rec_name"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input"  />
+</LinearLayout>
+<LinearLayout
+ android:layout_width="fill_parent"  android:layout_height="wrap_content"
+ android:orientation="horizontal" >
+ <LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/set_rec_folder" />
+</LinearLayout>
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  >
+<EditText android:id="@+id/set_rec_folder"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="/" android:textColor="#000000" android:inputType="textUri" />
+</LinearLayout>
+
+</LinearLayout>
+<LinearLayout 
+   android:orientation="horizontal"
+	android:layout_width="280dip"
+	android:layout_height="wrap_content"
+   android:layout_marginTop="10dip"
+	android:layout_gravity="center"
+	 >
+ <Button android:id="@+id/set_cal_reset"
+  	android:text="init"
+  	android:layout_width= "120dip"
+  	android:layout_height="wrap_content"	
+	android:gravity="center_horizontal|center_vertical"
+ />
+ <Button android:id="@+id/set_cal_save"
+  	android:text="@string/save"
+  	android:layout_width= "120dip"
+  	android:layout_height="wrap_content"	
+	android:gravity="center_horizontal|center_vertical"
+ />
+ </LinearLayout>
+</LinearLayout>

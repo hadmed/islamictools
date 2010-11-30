@@ -7,6 +7,8 @@ import com.alpha.commun.HadithList;
 import com.alpha.model.PT;
 import com.alpha.model.PrayerTime;
 import com.alpha.model.Settings;
+import com.alpha.param.SettingPosition;
+import com.alpha.param.SettingsDialog;
 
 import android.app.Activity;
 import android.content.Context;
@@ -98,7 +100,7 @@ private void setImageClick()
 	((TextView)findViewById(R.id.pt_location)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {
  		  //startActivityForResult(new Intent(mContext, ConfigCityView.class),ParametreCode);
- 		  ConfigCityView cvd = new ConfigCityView(mContext,activity);
+ 		 SettingPosition cvd = new SettingPosition(mContext,activity,true);
  		  cvd.show();
  	  }});
 

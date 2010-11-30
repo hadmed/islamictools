@@ -1,5 +1,10 @@
 package com.alpha.commun;
 
+import android.content.Context;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+
 public class utils
 {
    public static double deg2rad(double deg)
@@ -33,5 +38,23 @@ public class utils
 		
 	}
 	
-	
+	public static Location getCurrentLocation(Context context) {
+		Criteria criteria = new Criteria();
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
+		criteria.setCostAllowed(true);
+
+		LocationManager locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+		Location currentLocation = null;
+		try {
+			currentLocation = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, true));
+			if(currentLocation == null) {
+				criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+				currentLocation = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, true));
+			}
+		} catch(Exception ex) {
+			// GPS and wireless networks are disabled
+		}
+		return currentLocation;
+	}
+
 }

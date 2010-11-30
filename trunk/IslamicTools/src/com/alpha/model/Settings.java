@@ -8,8 +8,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
 import com.alpha.commun.CityDB;
 import com.alpha.commun.Param;
 import com.alpha.commun.utils;
@@ -23,13 +21,14 @@ public class Settings {
 //	private double speed=0;	
 	private int gmt;
 	private int dst;
-
 	private int country;
 	private int city;
-
 	private float angle;
 	private int method;
+	private int notification;
 	private Context context;
+	private String folderQuran;
+	public static int test = 0;
 	
 	private static Settings instance;
    private static double qibla_Lat = 21.4225,qibla_Lon = 39.826111;
@@ -44,15 +43,12 @@ public class Settings {
 		this.context = context;
 		SharedPreferences param = context.getSharedPreferences(Param.NAME, 0);
 
-		if (param.getInt("version", 0)!=Param.VERSION)
+		if (param.getInt("version", 0)!=Param.VERSION_PARAM)
 		{
 			this.reset();
 		}
-		
-		
 		this.country = param.getInt("country", 79 );
 		this.city = param.getInt("city", 410);
-		
 		this.location = param.getString("location", "FR, Paris");
 		//lat = 50.7323f;  //507283
 		this.lat = param.getLong("latitude", 488779);
@@ -71,6 +67,9 @@ public class Settings {
 		//dst = TimeZone.getDefault().getDSTSavings();
 		this.method = param.getInt("method", com.alpha.pt.PrayerTime.MUSLIM_LEAGUE);
 		//method = com.alpha.pt.PrayerTime.MUSLIM_LEAGUE;
+		this.folderQuran = param.getString("folderQuran","/sdcard/quran/c");
+		
+		this.notification = param.getInt("notification",0);
 	}
 
 	public void reset()
@@ -137,9 +136,12 @@ public class Settings {
       editor.putFloat("angle", this.angle);
       editor.putInt("dst", this.dst);
       editor.putInt("method", this.method);
-      editor.putInt("version", Param.VERSION);
+      editor.putInt("version", Param.VERSION_PARAM);
+      editor.putString("folderQuran", this.folderQuran);
+      editor.putInt("notification", this.notification);
       editor.commit();
 
+      /*
       Log.d("sam","location:"+this.location);
       Log.d("sam","city:"+this.city);
       Log.d("sam","country:"+this.country);      
@@ -150,7 +152,7 @@ public class Settings {
       Log.d("sam","angle:"+this.angle);
       Log.d("sam","dst:"+this.dst);
       Log.d("sam","method:"+this.method);
-      
+      */
 	}
 
 	public void setTimeZone(int gmt,int dst) {
@@ -230,7 +232,7 @@ public class Settings {
 			{
 				Cursor c = db.query("city", new String[]{"_id","ville","region","latitude","longitude","gmt","dst"}, "_id="+city+" and idpays="+country, null, null, null, null);
 				act.startManagingCursor(c);
-				String region;
+				//String region;
 				while (c.moveToNext())
 				{
 					this.lat = c.getInt(3);
@@ -243,4 +245,30 @@ public class Settings {
 			}
 		
 	}
+
+	public String getFolderQuran()
+	{
+		return this.folderQuran;
+	}
+
+	public void setFolderQuran(String folderQuran)
+	{
+		this.folderQuran = folderQuran;
+	}
+	
+	public void setNotification(int notification)
+	{
+		this.notification = notification;
+	}
+
+	public int getNotification()
+	{
+		return this.notification;
+	}
+
+	public boolean isSpkOn(int param)
+	{
+		return ((this.notification & param) > 0) ;
+	}
+	
 }
