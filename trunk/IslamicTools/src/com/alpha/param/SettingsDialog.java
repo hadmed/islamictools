@@ -43,10 +43,11 @@ private void assignButton()
 ((Button)findViewById(R.id.set_notification)).setOnClickListener(this);
 ((Button)findViewById(R.id.set_reciter)).setOnClickListener(this);
 ((Button)findViewById(R.id.set_theme)).setOnClickListener(this);
+((Button)findViewById(R.id.set_about)).setOnClickListener(this);
 }
 
 @Override
-	public void dismiss() {
+public void dismiss() {
 	   ((Compass)activity.findViewById(R.id.bCompassView)).setFreeze(false);
 	   ((Menu)activity).reload();
 	super.dismiss();
@@ -68,7 +69,9 @@ case R.id.set_calcul :
 case R.id.set_reciter : 
 	SettingReciteur set_rec = new SettingReciteur(context);
 	set_rec.show(); break;
-
+case R.id.set_about : 
+	(new SettingAbout(context)).show();	
+					break;
 
 
 
