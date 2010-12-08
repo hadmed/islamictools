@@ -43,20 +43,19 @@ public static class SampleView extends View implements SensorEventListener {
        this.setting = Settings.getInstance(context);
        setFocusable(true);
 
-       mBitmap = BitmapFactory.decodeResource(getResources(),
-                                                R.drawable.compass_back);
+       mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.boussole_fond);
        angle = 0;
        boussole = 0;
        x = mBitmap.getWidth()/2;
        y = mBitmap.getHeight()/2;
-
+       //mMatrix.setTranslate(100, 100);
        SensorManager m = (SensorManager)context.getSystemService(Context.SENSOR_SERVICE);
        m.registerListener(this,m.getDefaultSensor(Sensor.TYPE_ORIENTATION),SensorManager.SENSOR_DELAY_NORMAL);
 
    }
   
    @Override protected void onDraw(Canvas canvas) {
-       canvas.drawColor(0xFF000000);
+       //canvas.drawColor(0xFF000000);
        int angleFinal = (int) (boussole + setting.getDegQibla());
        angleFinal = (angleFinal+360)%360;
        angle = (angle+360)%360;
@@ -73,6 +72,7 @@ public static class SampleView extends View implements SensorEventListener {
       		 }
       	 }       
        mMatrix.setRotate((angle+360)%360, x, y);
+       
        invalidate();
        canvas.drawBitmap(mBitmap, mMatrix, null);
        

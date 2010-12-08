@@ -4,6 +4,7 @@ package com.alpha.view;
 import java.util.Calendar;
 
 import com.alpha.commun.HadithList;
+import com.alpha.commun.MsgNotification;
 import com.alpha.model.PT;
 import com.alpha.model.PrayerTime;
 import com.alpha.model.Settings;
@@ -16,6 +17,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TableLayout;
@@ -32,10 +34,12 @@ public class Menu extends Activity {
      super.onCreate(savedInstanceState);
      getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
            WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+     requestWindowFeature(Window.FEATURE_NO_TITLE);
      setContentView(R.layout.menu);
      mContext= this;
      activity = this;
      this.reload();
+ 	MsgNotification.start(this, (short)0, 0L);
  }
 
 public void reload()
@@ -74,7 +78,7 @@ private void setImageClick()
 	  public void onClick(View view) {startActivity(new Intent(mContext, QuranView.class));}});
 
    ((Compass)findViewById(R.id.bCompassView)).setOnClickListener(new View.OnClickListener() {
- 	  public void onClick(View view) {startActivity(new Intent(mContext, CompassTest.class));}});
+ 	  public void onClick(View view) {startActivity(new Intent(mContext, BoussoleQibla.class));}});
    
   ((ImageView)findViewById(R.id.bMap)).setOnClickListener(new View.OnClickListener() {
   	  public void onClick(View view) {startActivity(new Intent(mContext, SamMapView.class));}});
@@ -84,6 +88,9 @@ private void setImageClick()
 
    ((ImageView)findViewById(R.id.bHadith)).setOnClickListener(new View.OnClickListener() {
    	  public void onClick(View view) {startActivity(new Intent(mContext, HadithView.class));}});
+
+   ((ImageView)findViewById(R.id.bSermon)).setOnClickListener(new View.OnClickListener() {
+	   	  public void onClick(View view) {startActivity(new Intent(mContext, SermonView.class));}});
 
    /*((ImageView)findViewById(R.id.bPlay)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {startActivity(new Intent(mContext, Mp3Split.class));}});
@@ -130,6 +137,13 @@ public void setMContext(Context context)
 {
 	this.mContext = context;
 }
-	
+
+@Override
+protected void onDestroy() {
+	// TODO Auto-generated method stub
+	MsgNotification.stopNotification();
+	super.onDestroy();
+
+}
 	
 }

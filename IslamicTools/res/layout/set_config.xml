@@ -25,4 +25,7 @@
 		android:layout_width="fill_parent" android:layout_height="wrap_content" 
 				android:enabled="false"
 		/>
+	<Button android:id="@+id/set_about" android:text="@string/set_about"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" 
+		/>
 </LinearLayout>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Menu" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/Menu"
+ >
+<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+android:src="@drawable/bismillah2" android:tint="#ffe0ffe0" />
 <TextView style="@style/Titre" android:text="@string/noParam"  android:id = "@+id/pt_location" />
 <LinearLayout style="@style/CadreLayout" >
 
@@ -94,6 +98,11 @@
     android:layout_width="60dip"
     android:layout_height="60dip"
     android:id="@+id/bMap"
+    />
+    <ImageView android:src="@drawable/sermon"
+    android:layout_width="60dip"
+    android:layout_height="60dip"
+    android:id="@+id/bSermon"
     />
 <!-- 
     <ImageView android:src="@drawable/play"
