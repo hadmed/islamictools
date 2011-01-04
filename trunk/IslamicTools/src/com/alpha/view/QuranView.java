@@ -7,13 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 
-public class QuranView extends ListActivity 
+public class QuranView extends ListActivity
 {
 	  private static class EfficientAdapter extends BaseAdapter {      
 		  
@@ -33,13 +32,13 @@ public class QuranView extends ListActivity
      public View getView(int position, View convertView, ViewGroup parent) {
          ViewHolder holder;
          if (convertView == null) {
-             convertView = mInflater.inflate(R.layout.quran, null);
+             convertView = mInflater.inflate(R.layout.sourate_txt, null);
              holder = new ViewHolder();
-             holder.text = (TextView) convertView.findViewById(R.id.sourate);
-             holder.text.setTextColor(0xFFa0FFa0);
-             holder.text.setHeight(36);
-             holder.text2 = (TextView) convertView.findViewById(R.id.sourate2);
-             holder.text2.setTextColor(0xFFc0c0c0);
+             holder.text = (TextView) convertView.findViewById(R.id.souratePH);
+             holder.text.setTextColor(0xFF542800);
+             holder.text.setHeight(24);
+             holder.text2 = (TextView) convertView.findViewById(R.id.sourateFR);
+             holder.text2.setTextColor(0xFFd86804);
              convertView.setTag(holder);
 
          } else {
@@ -71,17 +70,13 @@ public class QuranView extends ListActivity
 	  
 	public void onCreate(Bundle savedInstanceState) {
 	       super.onCreate(savedInstanceState);
-	       requestWindowFeature(Window.FEATURE_NO_TITLE);	       
+	       setContentView(R.layout.quran);
 	       setListAdapter(new EfficientAdapter(this));
 	   }
 
    protected void onListItemClick(ListView l, View v, int position, long id) {
-      //Map map = (Map) l.getItemAtPosition(position);
-      //Intent intent = (Intent) map.get("intent");
    	Intent intent = new Intent(this,Sourate.class);
-   	//Next create the bundle and initialize it
    	Bundle bundle = new Bundle();
-   	//Add the parameters to bundle as
    	bundle.putInt("sourate", position);
    	bundle.putString("titre", SOURATE[position] + ("".equals(SOURATE_FR[position])?"":(" ("+SOURATE_FR[position]+")")));
    	intent.putExtras(bundle);

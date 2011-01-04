@@ -12,13 +12,13 @@ import com.alpha.param.SettingPosition;
 import com.alpha.param.SettingsDialog;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -32,15 +32,14 @@ public class Menu extends Activity {
  public void onCreate(Bundle savedInstanceState) {
 	 
      super.onCreate(savedInstanceState);
-     getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-           WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+ //    getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
      requestWindowFeature(Window.FEATURE_NO_TITLE);
      setContentView(R.layout.menu);
      mContext= this;
      activity = this;
      this.reload();
- 	MsgNotification.start(this, (short)0, 0L);
- }
+     MsgNotification.start(this, "Islamic Tools by Selim Amroune" , Notification.DEFAULT_LIGHTS);
+}
 
 public void reload()
 {
@@ -66,8 +65,8 @@ private void setTimePrayer()
 
 	((TextView)findViewById(R.id.pt_qibla)).setText(settings.getAngleQibla());
 	
-	((TextView)findViewById(R.id.wHadith)).setText(HadithList.getRadomHadith());
-	((TextView)findViewById(R.id.wHadithSrc)).setText("rapporté par "+HadithList.getSourceHadith()+" ");
+	((TextView)findViewById(R.id.wHadith)).setText(HadithList.getInstance(mContext).getHadith(-1));
+	((TextView)findViewById(R.id.wHadithSrc)).setText("rapporté par "+HadithList.getInstance(mContext).getSourceHadith()+" ");
 
 }
 
@@ -79,24 +78,34 @@ private void setImageClick()
 
    ((Compass)findViewById(R.id.bCompassView)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {startActivity(new Intent(mContext, BoussoleQibla.class));}});
-   
+  /* 
   ((ImageView)findViewById(R.id.bMap)).setOnClickListener(new View.OnClickListener() {
   	  public void onClick(View view) {startActivity(new Intent(mContext, SamMapView.class));}});
-   
+   */
    ((ImageView)findViewById(R.id.bName)).setOnClickListener(new View.OnClickListener() {
   	  public void onClick(View view) {startActivity(new Intent(mContext, NameAllah.class));}});
 
    ((ImageView)findViewById(R.id.bHadith)).setOnClickListener(new View.OnClickListener() {
-   	  public void onClick(View view) {startActivity(new Intent(mContext, HadithView.class));}});
+	   	  public void onClick(View view) {startActivity(new Intent(mContext, HadithView.class));}});
+
+   ((View)findViewById(R.id.cHadith)).setOnClickListener(new View.OnClickListener() {
+	   	  public void onClick(View view) {
+	   		((TextView)findViewById(R.id.wHadith)).setText(HadithList.getInstance(mContext).getHadith(-1));
+	   		((TextView)findViewById(R.id.wHadithSrc)).setText("rapporté par "+HadithList.getInstance(mContext).getSourceHadith()+" ");
+	   	  }});
 
    ((ImageView)findViewById(R.id.bSermon)).setOnClickListener(new View.OnClickListener() {
 	   	  public void onClick(View view) {startActivity(new Intent(mContext, SermonView.class));}});
-
+/*
+   ((ImageView)findViewById(R.id.bBook)).setOnClickListener(new View.OnClickListener() {
+	   	  public void onClick(View view) {startActivity(new Intent(mContext, SermonView.class));}});
+*/
    /*((ImageView)findViewById(R.id.bPlay)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {startActivity(new Intent(mContext, Mp3Split.class));}});
    ((ImageView)findViewById(R.id.bParam)).setOnClickListener(new View.OnClickListener() {
    	  public void onClick(View view) {startActivityForResult(new Intent(mContext, ParamView.class),ParametreCode);
    	  }});*/
+   
    ((ImageView)findViewById(R.id.bParam)).setOnClickListener(new View.OnClickListener() {
  	  public void onClick(View view) {
  		  //startActivity(new Intent(mContext, SettingsDialog.class));
@@ -121,6 +130,7 @@ private void setImageClick()
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data)
 {
+ 	//WakeLock.release();
 	if (requestCode == ParametreCode)
 	{
 	reload();

@@ -72,7 +72,7 @@
 <style name="CadreLayout">
 	<item name="android:orientation">horizontal</item>
 	<item name="android:layout_width">fill_parent</item>
-	<item name="android:layout_height">150dip</item>
+	<item name="android:layout_height">135dip</item>
 	<item name="android:background">@drawable/bkg</item>
 </style>
 <style name="CadreCompassLayout">

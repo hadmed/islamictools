@@ -30,12 +30,12 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_fadjr" />
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_shurooq" />
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_zuhr" />
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_asr" />
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_maghrib"/>
-<TextView style="@style/SettingCal.PrayerName" android:text="@string/wi_isha"/>
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_fadjr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_shurooq" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_zuhr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_asr" />
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_maghrib"/>
+<TextView style="@style/SettingCal.PrayerName" android:text="@string/pt_isha"/>
 </LinearLayout>
 <LinearLayout
   android:layout_width="wrap_content"

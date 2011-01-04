@@ -4,27 +4,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center_vertical"
+    android:background="@drawable/back_quran"
+    android:paddingTop="100dip"
+    android:paddingLeft="32dip"
+    android:paddingRight="32dip"
+    android:paddingBottom="30dip"
     >
-  <!--  
-    <ImageView
-    android:src="@drawable/ic_email_attachment"
-    android:layout_width = "wrap_content"
-    android:layout_height = "wrap_content"
-    android:layout_gravity = "bottom"
-    />-->
-    
-     <TextView android:id="@+id/sourate"
-        android:layout_weight="1.0"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
- 		/>
- 		    
-     <TextView android:id="@+id/sourate2"
-        android:layout_weight="1.0"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textStyle = "italic"
-        android:paddingLeft="3dip"
- 		/>
+    <ListView android:id="@android:id/list"
+                android:layout_width="fill_parent" 
+            android:layout_height="fill_parent"
+            android:drawSelectorOnTop="false"
+            android:cacheColorHint="#00000000"
+          
+             />
 </LinearLayout>

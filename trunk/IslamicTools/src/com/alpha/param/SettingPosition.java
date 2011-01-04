@@ -55,9 +55,10 @@ private static final class Zone { public static final int CONTINENT = 0,COUNTRY 
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setting = Settings.getInstance(context);
-	    requestWindowFeature(Window.FEATURE_NO_TITLE);
+	    //requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    // getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 	    setContentView(R.layout.set_city);
+	    setTitle(R.string.set_position);
 	    start= false;
 	    CityDB cb = new CityDB(context);
  	 	SQLiteDatabase db =  cb.getReadableDatabase();

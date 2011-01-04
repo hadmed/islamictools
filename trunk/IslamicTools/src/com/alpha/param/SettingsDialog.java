@@ -31,8 +31,8 @@ protected void onCreate(Bundle savedInstanceState)
 	super.onCreate(savedInstanceState);
 	   ((Compass)activity.findViewById(R.id.bCompassView)).setFreeze(true);
 	setContentView(R.layout.set_config);
-   getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND,
-         WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+	setTitle(R.string.set_parametre); //set_parametre
+//   getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,WindowManager.LayoutParams.FLAG_DIM_BEHIND);
    this.assignButton();
 }
 	

@@ -5,8 +5,8 @@
   android:layout_height="fill_parent">
   <TextView android:layout_width="fill_parent"
   android:layout_height="fill_parent" android:id="@+id/set_about" 
-  android:text="xxxxxxxxxxxxxxxxxx
-  yyyyyyyyyyyyyyyyyyyy
-  zzzzzzzzzzzzzzz"
+
+  android:text="[b]Islamic Tools[/b] par Selim Amroune\n
+  vous êtes autorisés à copier, diffuser et modifier* ce programme."
   />
 </LinearLayout>

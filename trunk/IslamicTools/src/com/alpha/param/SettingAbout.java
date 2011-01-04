@@ -10,6 +10,7 @@ public class SettingAbout extends Dialog {
 	public SettingAbout(Context context) {
 		super(context);
 		setContentView(R.layout.set_about);
+		setTitle(R.string.set_about);
 	}
 
 }
