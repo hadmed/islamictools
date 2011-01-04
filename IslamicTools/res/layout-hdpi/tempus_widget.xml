@@ -4,12 +4,12 @@
 style="@style/Widget" >
 
 <LinearLayout style="@style/PrayerLayout.Name" >
- 		<TextView style="@style/Prayer.Name" android:text="@string/wi_fadjr" />
- 		<TextView style="@style/Prayer.Name"  android:text="@string/wi_shurooq" />
-		<TextView style="@style/Prayer.Name"  android:text="@string/wi_zuhr" />
-		<TextView style="@style/Prayer.Name" android:text="@string/wi_asr" />
-		<TextView style="@style/Prayer.Name" android:text="@string/wi_maghrib"/>
-		<TextView style="@style/Prayer.Name" android:text="@string/wi_isha"/>
+ 		<TextView style="@style/Prayer.Name" android:text="@string/pt_fadjr" />
+ 		<TextView style="@style/Prayer.Name"  android:text="@string/pt_shurooq" />
+		<TextView style="@style/Prayer.Name"  android:text="@string/pt_zuhr" />
+		<TextView style="@style/Prayer.Name" android:text="@string/pt_asr" />
+		<TextView style="@style/Prayer.Name" android:text="@string/pt_maghrib"/>
+		<TextView style="@style/Prayer.Name" android:text="@string/pt_isha"/>
 </LinearLayout>
 
 <LinearLayout style="@style/PrayerLayout.Time">

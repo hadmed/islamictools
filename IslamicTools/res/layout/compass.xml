@@ -9,7 +9,7 @@
 <TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" 
 android:text="@string/pt_location"/>
 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
-android:text="@string/noParam" android:id="@+id/pt_location" />
+android:text="@string/pt_location" android:id="@+id/pt_location" />
 
 </LinearLayout>
  

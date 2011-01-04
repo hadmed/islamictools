@@ -26,12 +26,13 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_fadjr" />
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_shurooq" />
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_zuhr" />
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_asr" />
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_maghrib"/>
-<TextView style="@style/SettingNotif.PrayerName" android:text="@string/wi_isha"/>
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_fadjr" />
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_shurooq" />
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_zuhr" />
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_asr" />
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_maghrib"/>
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/pt_isha"/>
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/set_notif_alert" android:height="32dip"/>
 </LinearLayout>
 <LinearLayout
   android:layout_width="wrap_content"
@@ -44,6 +45,14 @@
 <ImageView android:id="@+id/set_spk_asr" android:layout_width="fill_parent"  android:layout_height="32dip"  android:src="@drawable/speaker_off" />
 <ImageView android:id="@+id/set_spk_maghrib" android:layout_width="fill_parent"  android:layout_height="32dip"  android:src="@drawable/speaker_off" />
 <ImageView android:id="@+id/set_spk_isha" android:layout_width="fill_parent"  android:layout_height="32dip"  android:src="@drawable/speaker_off" />
+<LinearLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  >
+<EditText android:id="@+id/alert_before" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<TextView style="@style/SettingNotif.PrayerName" android:text="@string/set_cal_min"/>
+</LinearLayout>
 </LinearLayout>
 </LinearLayout>
 <LinearLayout 

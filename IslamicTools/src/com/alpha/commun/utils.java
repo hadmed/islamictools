@@ -27,6 +27,10 @@ public class utils
    	return (int)rad+"°"+(int)((Math.abs(rad)%1)*10000);   	
    }
 
+   public static Integer str2int(String str, int defaut)
+   {
+	   return str.matches("[0-9\\-]+") ? Integer.parseInt(str) : defaut ;
+   }
 	public static String int2str(Integer x)
 	{
 		return ((x<10)?"0":"")+Integer.toString(x);	

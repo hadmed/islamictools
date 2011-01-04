@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Islamic Tools</string>
+    <string name="loading">[chargement...]</string>
+    <string name="save">sauvegarder</string>
+    
+    <string name="menu_title">Islamic Tools par Selim A.</string>    
+    <string name="pt_location">Lieu :</string>
+    <string name="pt_fadjr">Fadjr</string>
+    <string name="pt_shurooq">Shurooq</string>
+    <string name="pt_zuhr">Zuhr</string>
+    <string name="pt_asr">Asr</string>
+    <string name="pt_maghrib">Maghrib</string>
+    <string name="pt_isha">Isha</string>
+    <string name="pt_qibla">Qibla :</string>
+
+    <string name="param_lat">Latitude :</string>
+    <string name="param_lon">Longitude :</string>
+    <string name="param_gmt">GMT :</string>
+    <string name="param_dst">DST :</string>
+    <string name="param_calcul">Méthode :</string>
+    <string name="param_dst_toggle">DST</string>    
+    <string name="wi_max_libelle">Horaires/Hadiths</string>
+
+    <string name="set_parametre">Paramètrage</string>
+    <string name="set_position">Position actuelle</string>
+    		<string name="set_pos_gps">Acquisition GPS</string>
+    <string name="set_notification">notification</string>
+	    	<string name="set_notif_titre">Paramètrage des alertes</string>
+	    	<string name="set_notif_alert">Rappel avant prière</string>
+	    	
+    <string name="set_calcul">calcul</string>
+	    	<string name="set_calcul_titre">Paramètrage du calcul</string>
+	    	<string name="set_cal_min">min.</string>
+    <string name="set_theme">thème</string>
+    <string name="set_reciter">réciteur coranique</string>
+	    	<string name="set_rec_titre">Réciteur Coranique</string>
+	    	<string name="set_rec_folder">Répertoire :</string>
+    <string name="set_about">A propos</string>
+    
+    <string name="not_reset">Réinitialisation des paramètres !</string>
+
+
+    <string name="spinContinent">Choix du Continent</string>
+    <string name="spinCountry">Choix du Pays</string>
+    <string name="spinCity">Choix de la Ville</string>
+    
+    
+    
+</resources>

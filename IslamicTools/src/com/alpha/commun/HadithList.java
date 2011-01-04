@@ -1,22 +1,87 @@
 package com.alpha.commun;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Context;
+
 public class HadithList
 {
-private static int i = 0 ;	
 
-public static String getRadomHadith()
+private static HadithList instance;
+private List<String> hadithList;
+private List<String> refList;
+private static int i = -1 ;	
+	
+public static HadithList getInstance(Context context) {
+	if(instance == null)
+		instance = new HadithList(context);
+	return instance;
+}
+	
+private HadithList(Context context) {
+	this.hadithList = new ArrayList<String>();
+	this.refList = new ArrayList<String>();
+	
+	try{
+		InputStream is = context.getAssets().open("doc/hadith.slc");
+        if (is != null)            	
+      	  	{
+      	    BufferedReader bread = new BufferedReader(new InputStreamReader(is));
+      	    while (bread.ready()) {
+      	        String s = bread.readLine();
+      	        if (s.length()>1)
+	      	    {
+	      	        if (s.startsWith("_"))
+	      	        	{
+	      	        		this.hadithList.add(s.substring(1));
+	      	        	} else if (s.startsWith("#"))
+	      	        	{
+	      	        		this.refList.add(s.substring(1));      	        		
+	      	        	}
+      	        }
+      	    }
+      	  		is.close(); 
+      	  	}
+	}catch (Exception ex)
+	{
+		
+		
+	}
+
+
+}	
+	
+
+public String getHadith(int ref)
 {
-i = (int)(Math.random()*hadith.length);
-//i=137;
-return hadith[i];
+if (ref<0)
+	{
+		ref = (int)(Math.random()*hadithList.size());
+	}
+i = ref;
+return (i<hadithList.size())? hadithList.get(i) : "";
 }
 
-public static String getSourceHadith()
+
+public String getSourceHadith()
 {
-return ref[i];
+return (i<refList.size())? refList.get(i) : "" ;
 }
 
+private static int[][] rabbana=
+{
+{2,127,2},{2,201,1},{2,250,1},{2,285,1},{2,286,1},{3,8,1},{3,16,1},{3,38,1},{3,53,1},{3,147,1},{3,191,3},{3,194,1},{4,75,1},
+{5,83,1},{7,23,1},{7,47,1},{7,89,1},{7,126,1},{7,151,1},{9,129,1},{10,85,2},{11,47,1},{14,35,1},{14,40,1},{14,41,1},
+{17,80,1},{18,10,1},{20,25,4},{20,114,1},{21,89,1},{23,93,2},{23,97,2},{23,109,1},{23,118,1},{25,65,2},{25,74,1},
+{26,83,3},{27,19,1},{28,16,1},{28,17,1},{28,21,1},{28,24,1},{29,30,1},{37,100,1},{40,7,3},{44,12,1},{46,15,1},
+{71,28,1},{59,10,1},{60,4,1},{60,5,1},{66,8,1}
+};
 
+/*
 private static String[] hadith={
 "Je vous laisse deux choses : aussi longtemps que vous vous y conformerez, vous ne vous égarerez jamais du droit chemin; il s’agit du Livre d’Allah et de la Sunna de Son Messager.",
 "Celui qui est satisfait d’Allah comme Seigneur, de l’Islam comme religion et de Mohammad e comme Messager, a goûté à la douceur de la Foi.",
@@ -542,5 +607,5 @@ private static String[] ref = {
 "Boukhari, Mouslim",
 "Boukhari, Mouslim",
 "Boukhari, Mouslim"};
-	
+	*/
 }

@@ -50,7 +50,18 @@ public class PrayerTime {
 		pt.set(Calendar.SECOND, second);
 		return pt;
 	}
-	
+
+	public Calendar getCalendar2() {
+		Calendar pt = Calendar.getInstance();
+		pt.set(Calendar.YEAR, pt.get(Calendar.YEAR) );
+		pt.set(Calendar.MONTH, pt.get(Calendar.MONTH) );
+		pt.set(Calendar.DAY_OF_MONTH, pt.get(Calendar.DAY_OF_MONTH) );
+		pt.set(Calendar.HOUR_OF_DAY, hour);
+		pt.set(Calendar.MINUTE, minute);
+		pt.set(Calendar.SECOND, 0);
+		pt.set(Calendar.MILLISECOND, 0);
+		return pt;
+	}
 	public String getTime() {
 		return utils.int2str(getHour())+":"+utils.int2str(getMinute())+":"+utils.int2str(getSecond());
 	}

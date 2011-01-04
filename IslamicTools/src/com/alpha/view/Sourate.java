@@ -51,11 +51,7 @@ public class Sourate extends ListActivity
          InputStream is = manager.open("sourate/"+lang+"/"+sourate+".gzx");
          
          GZIPInputStream fis = new GZIPInputStream(is);
-         if (fis ==null)    
-         	
-       	  	{
-       	  		Log.d("sam", "error fichier");
-       	  	} else
+         if (fis != null)            	
        	  	{
        	    BufferedReader bread = new BufferedReader(new InputStreamReader(fis));
        	    while (bread.ready()) {
@@ -322,10 +318,7 @@ public void onPanelClosed(int featureId, Menu menu)
      String sourate = (num_sourate<10?"0":"")+(num_sourate<100?"0":"")+num_sourate+".html";
      
      GZIPInputStream fis = new GZIPInputStream(getAssets().open("sourate/XG/"+sourate+".gzx"));
-     if (fis ==null)         	
-   	  	{
-   	  		Log.d("sam", "error fichier");
-   	  	} else
+     if (fis !=null)         	
    	  	{
    	  	 txt = new StringBuffer();
    	    BufferedReader bread = new BufferedReader(new InputStreamReader(fis));

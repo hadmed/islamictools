@@ -4,13 +4,15 @@ import java.util.Calendar;
 
 import com.alpha.commun.HadithList;
 import com.alpha.commun.MajService;
+import com.alpha.commun.MsgNotification;
 import com.alpha.model.PT;
 import com.alpha.model.PrayerTime;
 import com.alpha.model.Settings;
-import com.alpha.view.ParamView;
+//import com.alpha.view.ParamView;
 import com.alpha.view.R;
 
 //import android.app.PendingIntent;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -18,6 +20,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 //import android.content.res.Resources;
+//import android.os.Vibrator;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -68,7 +71,6 @@ public void onReceived(Context context){
 }
 
 public static RemoteViews updateAppWidget(Context context) {
-  Log.d(TAG, "updateAppWidget @@sam ");
   /*Intent intent = new Intent(context, ParamView.class);
   PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
   RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.tempus_widget);
@@ -85,9 +87,27 @@ public static RemoteViews updateAppWidget(Context context) {
   
   
   Settings settings = Settings.getInstance(context);
-	Calendar now = Calendar.getInstance();
-	Log.d("sam", "dst : "+settings.getDst());
+	Calendar now;
+	now = Calendar.getInstance();
+
 	PrayerTime[] prayerTimes = PT.getPrayerTimes(now.get(Calendar.YEAR), now.get(Calendar.MONTH) +1, now.get(Calendar.DAY_OF_MONTH), settings.getLat(), settings.getLon(), settings.getGmt(),0,settings.getMethod());
+	
+	now.add(Calendar.MINUTE, settings.getAlert_before());
+	now.set(Calendar.SECOND, 0);
+	now.set(Calendar.MILLISECOND, 0);
+
+	for (int k=1;k<5;k++)
+	{
+		if(now.equals(prayerTimes[k].getCalendar2()))
+		{
+		     MsgNotification.start(context, "C'est l'heure de la prière !" , Notification.DEFAULT_ALL);
+			
+			/*Vibrator v = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);  
+			long milliseconds = 1000;  
+			v.vibrate(milliseconds);  */
+		}
+	}
+	now = Calendar.getInstance();
 	now.add(Calendar.MINUTE, -15); //la selection de la prière reste 15 minutes après l'heure
 	int idxSelected = R.id.wi_shurooq;
 	if (now.before(prayerTimes[1].getCalendar())) {idxSelected = R.id.wi_fadjr; }
@@ -109,8 +129,8 @@ public static RemoteViews updateAppWidget(Context context) {
   views.setTextViewText(R.id.wi_isha, prayerTimes[5].getTime2());
   views.setTextColor(R.id.wi_isha, 0xFFFFFFFF);
   views.setTextColor(idxSelected, 0xFFFF0000);
-   views.setTextViewText(R.id.widgetClick, HadithList.getRadomHadith());
-   views.setTextViewText(R.id.srcHadith, "rapporté par "+HadithList.getSourceHadith()+"  ");
+   views.setTextViewText(R.id.widgetClick, HadithList.getInstance(context).getHadith(-1));
+   views.setTextViewText(R.id.srcHadith, "rapporté par "+HadithList.getInstance(context).getSourceHadith()+"  ");
  return views;
 }
 

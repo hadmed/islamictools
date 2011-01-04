@@ -1,56 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Islamic Tools</string>
-    <string name="activeGPS">[Vous devez activer le GPS pour détecter votre position]</string>
-    <string name="version">version 0.1</string>
-    <string name="paramHS">[paramètre non disponible pour le moment]</string>
-    <string name="loading">[chargement...]</string>
-    <string name="save">sauvegarder</string>
+    <string name="loading">[loading...]</string>
+    <string name="save">Save</string>
     
-    <string name="menu_title">Islamic Tools par Selim A.</string>    
-    <string name="pt_location">Lieu :</string>
-    <string name="pt_fadjr">Fadjr :</string>
-    <string name="pt_shurooq">Shurooq :</string>
-    <string name="pt_zuhr">Zuhr :</string>
-    <string name="pt_asr">Asr :</string>
-    <string name="pt_maghrib">Maghrib :</string>
-    <string name="pt_isha">Isha :</string>
+    <string name="menu_title">Islamic Tools by Selim A.</string>    
+    <string name="pt_location">Locate :</string>
+    <string name="pt_fadjr">Fadjr</string>
+    <string name="pt_shurooq">Shurooq</string>
+    <string name="pt_zuhr">Zuhr</string>
+    <string name="pt_asr">Asr</string>
+    <string name="pt_maghrib">Maghrib</string>
+    <string name="pt_isha">Isha</string>
     <string name="pt_qibla">Qibla :</string>
-    <string name="noParam">[à configurer]</string>
 
     <string name="param_lat">Latitude :</string>
     <string name="param_lon">Longitude :</string>
     <string name="param_gmt">GMT :</string>
     <string name="param_dst">DST :</string>
-    <string name="param_calcul">Méthode :</string>
+    <string name="param_calcul">Methode :</string>
     <string name="param_dst_toggle">DST</string>    
-    <string name="wi_max_libelle">Horaires/Hadiths</string>
-    <string name="wi_fadjr">Fadjr</string>
-    <string name="wi_shurooq">Shurooq</string>
-    <string name="wi_zuhr">Zuhr</string>
-    <string name="wi_asr">Asr</string>
-    <string name="wi_maghrib">Maghrib</string>
-    <string name="wi_isha">Isha</string>
+    <string name="wi_max_libelle">PrayersTimes/Hadiths</string>
 
-    <string name="set_parametre">Paramètrage</string>
-    <string name="set_position">position</string>
-    		<string name="set_pos_gps">Acquisition GPS</string>
+    <string name="set_parametre">Settings</string>
+    <string name="set_position">Set Position</string>
+    		<string name="set_pos_gps">Acquire/Lookup GPS</string>
     <string name="set_notification">notification</string>
-	    	<string name="set_notif_titre">Paramètrage des alertes</string>
-    <string name="set_calcul">calcul</string>
-	    	<string name="set_calcul_titre">Paramètrage du calcul</string>
+	    	<string name="set_notif_titre">Alarm Parameter</string>
+	    	<string name="set_notif_alert">Recall before Prayer</string>
+	    	
+    <string name="set_calcul">calculation</string>
+	    	<string name="set_calcul_titre">Set Calculation</string>
 	    	<string name="set_cal_min">min.</string>
-    <string name="set_theme">thème</string>
-    <string name="set_reciter">réciteur coranique</string>
-	    	<string name="set_rec_titre">Réciteur Coranique</string>
-	    	<string name="set_rec_folder">Répertoire :</string>
-    <string name="set_about">A propos</string>
+    <string name="set_theme">theme</string>
+    <string name="set_reciter">Set Quran speaker</string>
+	    	<string name="set_rec_titre">Quran speaker</string>
+	    	<string name="set_rec_folder">Folder :</string>
+    <string name="set_about">About</string>
     
+    <string name="not_reset">Reset parameter !</string>
 
 
-    <string name="spinContinent">Choix du Continent</string>
-    <string name="spinCountry">Choix du Pays</string>
-    <string name="spinCity">Choix de la Ville</string>
+    <string name="spinContinent">Continent</string>
+    <string name="spinCountry">Country</string>
+    <string name="spinCity">City</string>
     
     
     

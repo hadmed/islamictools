@@ -26,6 +26,7 @@ public class Settings {
 	private float angle;
 	private int method;
 	private int notification;
+	private int alert_before;
 	private Context context;
 	private String folderQuran;
 	public static int test = 0;
@@ -70,6 +71,9 @@ public class Settings {
 		this.folderQuran = param.getString("folderQuran","/sdcard/quran/c");
 		
 		this.notification = param.getInt("notification",0);
+
+		this.alert_before = param.getInt("alert_before",0);
+
 	}
 
 	public void reset()
@@ -139,6 +143,7 @@ public class Settings {
       editor.putInt("version", Param.VERSION_PARAM);
       editor.putString("folderQuran", this.folderQuran);
       editor.putInt("notification", this.notification);
+      editor.putInt("alert_before", this.alert_before);
       editor.commit();
 
       /*
@@ -265,6 +270,15 @@ public class Settings {
 	{
 		return this.notification;
 	}
+
+	public int getAlert_before() {
+		return alert_before;
+	}
+
+	public void setAlert_before(int alert_before) {
+		this.alert_before = alert_before;
+	}
+
 
 	public boolean isSpkOn(int param)
 	{

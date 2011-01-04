@@ -13,7 +13,7 @@
 
 <LinearLayout 
    android:orientation="vertical"
-	android:layout_width="90dip"
+	android:layout_width="120dip"
 	android:layout_height="wrap_content"
 	android:layout_gravity="top|right" >
 
@@ -21,21 +21,21 @@
    		android:id="@+id/txtsam"
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:text="Continent"
+        android:text="@string/spinContinent"
         android:textStyle="bold"
         android:gravity="center_vertical|right"
     />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:text="Pays"
+        android:text="@string/spinCountry"
         android:textStyle="bold"
         android:gravity="center_vertical|right"
     />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:text="Ville"
+        android:text="@string/spinCity"
         android:textStyle="bold"
         android:gravity="center_vertical|right"
 			android:id="@+id/sammpx"
@@ -44,7 +44,7 @@
         android:layout_width="fill_parent"
         android:layout_height="48dip"
         android:gravity="center_vertical|right"
-        android:text="GMT"
+        android:text="@string/param_gmt"
         android:textStyle="bold"
     />
 
@@ -52,7 +52,7 @@
         android:layout_width="fill_parent"
         android:layout_height="48dip"
         android:gravity="center_vertical|right"
-        android:text="dst"
+        android:text="@string/param_dst"
         android:textStyle="bold"
     />
 </LinearLayout>
@@ -117,13 +117,13 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:text="Latitude"
+        android:text="@string/param_lat"
         android:gravity="center_vertical|right"
     />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="48dip"
-        android:text="Longitude"
+        android:text="@string/param_lon"
         android:gravity="center_vertical|right"
     />
 
@@ -131,7 +131,7 @@
 </LinearLayout>
 <LinearLayout 
    android:orientation="vertical"
-	android:layout_width="120dip"
+	android:layout_width="80dip"
 	android:layout_height="wrap_content"
 	android:layout_gravity="center_vertical|center_horizontal" >
 
