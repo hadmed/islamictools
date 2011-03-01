@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:orientation="vertical"
+  android:background="@drawable/back_quran"
+  >
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  >
+
+  <TextView android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  style="@style/DateTable.Name"
+  android:text = "[hijir date]"
+  android:gravity="center"
+  android:textSize="21dip"
+ android:id="@+id/dateSam"
+  />
+</LinearLayout>
+
+<LinearLayout
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:gravity="center"
+  >
+
+<TableLayout style="@style/DateTable" android:id = "@+id/day_table" 
+android:gravity="center_horizontal"  android:layout_width="wrap_content"
+ android:paddingTop="20dip"  android:paddingLeft="8dip"  android:paddingRight="8dip" >
+<TableRow>
+  <TextView style="@style/DateTable.Name" android:text = "@string/dayAR_01" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_01" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_01" />
+</TableRow>
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_02" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_02"/>
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_02" />
+</TableRow>
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_03" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_03" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_03" />
+</TableRow>
+
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_04" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_04" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_04" />
+</TableRow>
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_05" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_05" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_05" />
+</TableRow>
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_06" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_06" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_06" />
+</TableRow>
+
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_07" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_07" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_07" />
+</TableRow>
+<TableRow>
+  <TextView style="@style/DateTable.Name"  android:text = "@string/dayAR_08" />
+  <TextView style="@style/DateTable.Name2"  android:text = "@string/day_08" />
+</TableRow>
+<TableRow android:gravity="center">
+  <TextView style="@style/DateTable.Day" android:id = "@+id/day_08" />
+</TableRow>
+
+  </TableLayout>
+  </LinearLayout>
+</LinearLayout>

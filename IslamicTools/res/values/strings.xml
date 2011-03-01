@@ -4,7 +4,7 @@
     <string name="loading">[loading...]</string>
     <string name="save">Save</string>
     
-    <string name="menu_title">Islamic Tools by Selim A.</string>    
+    <string name="menu_title">Islamic Tools by Selim Amroune</string>    
     <string name="pt_location">Locate :</string>
     <string name="pt_fadjr">Fadjr</string>
     <string name="pt_shurooq">Shurooq</string>
@@ -20,11 +20,13 @@
     <string name="param_dst">DST :</string>
     <string name="param_calcul">Methode :</string>
     <string name="param_dst_toggle">DST</string>    
-    <string name="wi_max_libelle">PrayersTimes/Hadiths</string>
+    <string name="wi_max_libelle">Prayers Times/Hadiths</string>
 
     <string name="set_parametre">Settings</string>
     <string name="set_position">Set Position</string>
     		<string name="set_pos_gps">Acquire/Lookup GPS</string>
+    		<string name="gps_HS">GPS not activated</string>
+    		
     <string name="set_notification">notification</string>
 	    	<string name="set_notif_titre">Alarm Parameter</string>
 	    	<string name="set_notif_alert">Recall before Prayer</string>
@@ -39,12 +41,57 @@
     <string name="set_about">About</string>
     
     <string name="not_reset">Reset parameter !</string>
+    <string name="init_DB">Database Initialization</string>
 
+    <string name="file_not_found">File not found !</string>
 
     <string name="spinContinent">Continent</string>
     <string name="spinCountry">Country</string>
     <string name="spinCity">City</string>
     
+    <string name="notifPrayer">It\'s time to pray! [#]</string>
+
+    <string name="dayAR_01">Raas Assana</string>
+    <string name="dayAR_02">Achoura</string>
+    <string name="dayAR_03">Al Mawlid</string>
+    <string name="dayAR_04">Al-Isra\'</string>
+    <string name="dayAR_05">Ramadhan</string>
+    <string name="dayAR_06">Destiny night</string>
+    <string name="dayAR_07">Aid-Fitr</string>
+    <string name="dayAR_08">Aid-Adha</string>
+
+    <string name="day_01">New Year</string>
+    <string name="day_02">10 Muharem</string>
+    <string name="day_03">12 Rabi\' I</string>
+    <string name="day_04">26 Rajeb</string>
+    <string name="day_05">1 Ramadan</string>
+    <string name="day_06">26 Ramadan</string>
+    <string name="day_07">1er Chawel</string>
+    <string name="day_08">10 Dhu al Hijja</string>
     
+    	
+	<string name="EGYPT_SURVEY">Le Cadastre général d\'Egypte</string>
+	<string name="KARACHI_SHAF">Shaf`i - L\'Université des Sciences Islamiques de Karachi</string>
+	<string name="KARACHI_HANAF">Hanafi - L\'Université des Sciences Islamiques de Karachi</string>
+	<string name="NORTH_AMERICA">La Fédération Islamique de l\'Amérique du Nord</string>
+	<string name="MUSLIM_LEAGUE">La Ligue du Monde Islamique</string>
+	<string name="UMM_ALQURRA">Umm Ul Qurâ,  Arabie Saoudite</string>
+	<string name="FIXED_ISHAA">Fixe pour Fadjr/Ishaa</string>
+
+	<string name="download">Download</string>
     
+<string name="no_connexion">No connection found !\nPlease check parameters.</string>    
+   <string name="about_txt"><b>Islamic Tools</b> <i>par Selim Amroune</i> (version:#)\n\n
+   Bismi Allahi alrrahmani alrraheemi\n\n
+   Chers frères et soeurs, ce progamme est une compilation de plusieurs outils pour le Musulman,
+   j\'attire votre attention sur le fait que:\n<u>cette application n\'est qu\'un assistant !</u>\n
+   Je me suis basé sur plusieurs sources différentes pour constituer ce programme, 
+   donc je ne garantis aucune exactitude sur les calculs ni sur le contenu du programme.\n\n
+   Je suis disposé à corriger, améliorer toute ou partie de l\'application et si vous trouvez des erreurs, 
+   ou que vous avez des commentaires ou suggestions, je vous remercirais de bien vouloir m\'envoyer un e-mail à :\n<b>amrounix@gmail.com</b>\n 
+   J\'essairai de corriger ou d\'améliorer le programme inchaAllah.\n\n
+   Ce programme bénéficie régulièrement de mises à jour, donc rendez-vous sur le site :\n <b>islamictools.googlecode.com</b>\n 
+   pour vous assurer d\'avoir la dernière version.\n\nJ\'ai mis ce programme en open-source, vous êtes libre de copier, diffuser et de modifier* ce programme.\n<i>*Merci de me tenir informé de vos corrections.</i>\n\n
+  	<i>Le savoir n\'est rien sans le partage !</i>
+  	</string> 
 </resources>

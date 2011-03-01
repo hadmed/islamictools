@@ -10,7 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.alpha.commun.CityDB;
 import com.alpha.commun.Param;
-import com.alpha.commun.utils;
+import com.alpha.commun.Utils;
 
 
 public class Settings {
@@ -29,6 +29,10 @@ public class Settings {
 	private int alert_before;
 	private Context context;
 	private String folderQuran;
+	private float[] offset;
+	
+	
+	
 	public static int test = 0;
 	
 	private static Settings instance;
@@ -74,6 +78,11 @@ public class Settings {
 
 		this.alert_before = param.getInt("alert_before",0);
 
+		this.offset = new float[6];
+		for (int i = 0; i < offset.length; i++) {
+			this.offset[i] = param.getFloat("offset"+i, 0);
+		}
+
 	}
 
 	public void reset()
@@ -91,7 +100,7 @@ public class Settings {
 	}
 	
 	public String getGmtString() {
-		return utils.time2str(gmt);
+		return Utils.time2str(gmt);
 	}
 	
 	public double getLat() {
@@ -111,15 +120,15 @@ public class Settings {
 	
 	public String getAngleQibla()
 	{
-		return utils.dms2str(this.getDegQibla());
+		return Utils.dms2str(this.getDegQibla());
       //double rlng =  utils.deg2rad(qibla_Lon - this.getLon());
       //return utils.deg2str(utils.rad2deg(Math.atan2(Math.sin(rlng), Math.cos(utils.deg2rad(this.getLat()))* Math.tan( utils.deg2rad(qibla_Lat))- Math.sin(utils.deg2rad(this.getLat()))* Math.cos(rlng))));		
 	}
 
 	public float getDegQibla()
 	{		
-      double rlng =  utils.deg2rad(qibla_Lon - this.getLon());
-      return utils.rad2deg(Math.atan2(Math.sin(rlng), Math.cos(utils.deg2rad(this.getLat()))* Math.tan( utils.deg2rad(qibla_Lat))- Math.sin(utils.deg2rad(this.getLat()))* Math.cos(rlng)));		
+      double rlng =  Utils.deg2rad(qibla_Lon - this.getLon());
+      return Utils.rad2deg(Math.atan2(Math.sin(rlng), Math.cos(Utils.deg2rad(this.getLat()))* Math.tan( Utils.deg2rad(qibla_Lat))- Math.sin(Utils.deg2rad(this.getLat()))* Math.cos(rlng)));		
 	}
 
 	/*
@@ -144,20 +153,14 @@ public class Settings {
       editor.putString("folderQuran", this.folderQuran);
       editor.putInt("notification", this.notification);
       editor.putInt("alert_before", this.alert_before);
-      editor.commit();
+      editor.putFloat("offset0", this.offset[0]);
+      editor.putFloat("offset1", this.offset[1]);
+      editor.putFloat("offset2", this.offset[2]);
+      editor.putFloat("offset3", this.offset[3]);
+      editor.putFloat("offset4", this.offset[4]);
+      editor.putFloat("offset5", this.offset[5]);
 
-      /*
-      Log.d("sam","location:"+this.location);
-      Log.d("sam","city:"+this.city);
-      Log.d("sam","country:"+this.country);      
-      Log.d("sam","latitude:"+(float)this.lat);
-      Log.d("sam","longitude:"+(float)this.lon);
-      Log.d("sam","alt:"+(float)this.alt);
-      Log.d("sam","gmt:"+this.gmt);
-      Log.d("sam","angle:"+this.angle);
-      Log.d("sam","dst:"+this.dst);
-      Log.d("sam","method:"+this.method);
-      */
+      editor.commit();
 	}
 
 	public void setTimeZone(int gmt,int dst) {
@@ -283,6 +286,14 @@ public class Settings {
 	public boolean isSpkOn(int param)
 	{
 		return ((this.notification & param) > 0) ;
+	}
+
+	public float[] getOffset() {
+		return offset;
+	}
+
+	public void setOffset(float[] offset) {
+		this.offset = offset;
 	}
 	
 }

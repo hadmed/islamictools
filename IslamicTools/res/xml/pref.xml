@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+  <PreferenceScreen
+            android:title="Notification"
+            android:summary="Notification pour les heures de prière"
+            >
+
+        <CheckBoxPreference
+                android:key="checkbox_fadjr"
+                android:title="Fadjr"
+                android:summary="Notification pour la prière du Fadjr" />
+
+        <CheckBoxPreference
+                android:key="checkbox_asr"
+                android:title="Asr"
+                android:summary="Notification pour la prière du Asr" />
+
+        <CheckBoxPreference
+                android:key="checkbox_zuhur"
+                android:title="Duhur"
+                android:summary="Notification pour la prière du Zuhur" />
+
+        <CheckBoxPreference
+                android:key="checkbox_maghreb"
+                android:title="Maghreb"
+                android:summary="Notification pour la prière du Maghreb" />
+
+        <CheckBoxPreference
+                android:key="checkbox_ishaa"
+                android:title="Ishaa"
+                android:summary="Notification pour la prière du Ishaa" />
+
+        <EditTextPreference
+                android:key="rappel"
+                
+                android:title="Rappel avant prière"
+                android:summary="Rappel : 0 min avant prière"
+                android:dialogTitle="" />
+</PreferenceScreen>
+  <PreferenceCategory
+            android:title="Methode de calcul"/>
+
+        <ListPreference
+                android:key="list_preference"
+                android:title="methode de calcul"
+                android:summary="fixe pour Fadjr/Ishaa"
+                android:entries="@array/methode"
+                android:entryValues="@array/methode_val"
+                android:dialogTitle="Hello world" />
+
+        <CheckBoxPreference
+                android:key="checkbox_perso"
+                android:title="Personnaliser le calcul"
+                android:summary="Vous devez paramétrer chaque prière en fonction de la position du soleil ou du decalage horaire" />
+
+  <PreferenceScreen 
+  			android:title="Fadjr"
+          android:dependency="list_preference"
+ 		android:summary="85 min avant Shurooq" >     
+        <CheckBoxPreference
+                android:title="degres" android:dependency="checkbox_perso" />
+ </PreferenceScreen>
+ 
+ 
+ <PreferenceScreen 
+  			android:title="Shurooq"
+            android:dependency="checkbox_perso"></PreferenceScreen>
+ <PreferenceScreen  
+  			android:title="Asr"
+            android:dependency="checkbox_perso"></PreferenceScreen>
+  <PreferenceScreen 
+  			android:title="Duhur"
+            android:dependency="checkbox_perso"></PreferenceScreen>
+  <PreferenceScreen  
+  			android:title="Maghreb"
+            android:dependency="checkbox_perso"></PreferenceScreen>
+  <PreferenceScreen  
+  			android:title="Ishaa"
+            android:dependency="checkbox_perso"></PreferenceScreen>
+            
+
+
+
+
+<!-- 
+        <ListPreference
+                android:key="list_preference"
+                android:title="Fadjr"
+                android:summary="notification de la prière du Fadjr"
+                android:entries="@array/notif"
+                android:entryValues="@array/notif_val"
+                android:dialogTitle="Hello world" />
+   -->
+  
+  
+</PreferenceScreen>

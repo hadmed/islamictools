@@ -5,11 +5,10 @@
     android:layout_height="fill_parent"
     android:gravity="center_vertical"
     android:background="@drawable/back_quran"
-    android:paddingTop="100dip"
-    android:paddingLeft="32dip"
-    android:paddingRight="32dip"
-    android:paddingBottom="30dip"
     >
+      <com.alpha.commun.FastScrollView 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
     <ListView android:id="@android:id/list"
                 android:layout_width="fill_parent" 
             android:layout_height="fill_parent"
@@ -17,4 +16,5 @@
             android:cacheColorHint="#00000000"
           
              />
+</com.alpha.commun.FastScrollView>
 </LinearLayout>

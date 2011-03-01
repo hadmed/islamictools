@@ -4,18 +4,17 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.util.Log;
 
 public class CityDB extends SQLiteOpenHelper
 {
-	private static final int DATABASE_VERSION = 2;
-	private static final String DATABASE_NAME = "IslamicTools";
 	private Context context;
-
+	ProgressDialog mprog;
+    
    
 	public CityDB(Context context, String name, CursorFactory factory, int version)
 	{
@@ -24,10 +23,9 @@ public class CityDB extends SQLiteOpenHelper
 	}
 
    public CityDB(Context context) {
-      super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		this.context = context;
-		//Log.d("sam", "appel create DB ");
-  }
+      super(context, Param.DB_NAME, null, Param.VERSION_DB);
+  	this.context = context;
+   }
 
    
 	@Override
@@ -50,21 +48,17 @@ public class CityDB extends SQLiteOpenHelper
 		      	  cpt++;
 		      	  cptCity = 0;
 		      	  db.execSQL("insert into country values ("+cpt+",\""+country+"\",0);");
-		      	  Log.d("sam","~~~~ insert into country values ("+cpt+",\""+country+"\",0);" );
-
 		        } else
 		        if (s!=null && !s.equals("") )
 		        {
-		      	  s = s.replaceAll("@", ""+cpt).replaceAll("#", ""+cptCity);
-		      	  Log.d("sam", "query : "+s);
+		      	  s = s.replaceAll("~", "insert into city values ("+cptCity+","+cpt+",");		      	  
 		      	  cptCity++;
 		      	  db.execSQL(s);
 		        }
 		    }
-	  	   //db.close();
 		} catch (Exception ex)
 		{
-			Log.d("sam", "erreur : "+ex.getMessage());			
+			//Log.d("sam", "erreur : "+ex.getMessage());			
 		} finally{
 			try{
 				if (fis!=null)
@@ -74,8 +68,6 @@ public class CityDB extends SQLiteOpenHelper
 			}	
 				
 			}
-			//db.close();
-		
 	}
 
 	@Override

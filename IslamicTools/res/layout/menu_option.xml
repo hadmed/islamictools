@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/menu_first"
+		android:numericShortcut="1" android:title="@string/download"
+		android:alphabeticShortcut="D">
+	</item>
+	<!-- 
+	<item android:icon="@android:drawable/ic_menu_help" android:id="@+id/menu_help"
+		android:numericShortcut="2" android:title="@string/help"
+		android:alphabeticShortcut="H">
+	</item>
+	<item android:icon="@android:drawable/ic_menu_info_details" android:id="@+id/menu_information"
+		android:numericShortcut="3" android:title="@string/information"
+		android:alphabeticShortcut="I">
+	</item> -->
+</menu>

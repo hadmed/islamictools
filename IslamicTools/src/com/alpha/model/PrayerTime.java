@@ -2,7 +2,7 @@ package com.alpha.model;
 
 import java.util.Calendar;
 
-import com.alpha.commun.utils;
+import com.alpha.commun.Utils;
 
 public class PrayerTime {
 	private int year,month,day,hour,minute,second;
@@ -63,11 +63,11 @@ public class PrayerTime {
 		return pt;
 	}
 	public String getTime() {
-		return utils.int2str(getHour())+":"+utils.int2str(getMinute())+":"+utils.int2str(getSecond());
+		return Utils.int2str(getHour())+":"+Utils.int2str(getMinute())+":"+Utils.int2str(getSecond());
 	}
 	
 	public String getTime2() {
-		return utils.int2str(getHour())+":"+utils.int2str(getMinute());
+		return Utils.int2str(getHour())+":"+Utils.int2str(getMinute());
 	}
 	
 /*	public boolean beforeNow()

@@ -4,7 +4,7 @@ import java.util.List;
 
 //import com.alpha.commun.City;
 import com.alpha.commun.CityDB;
-import com.alpha.commun.utils;
+import com.alpha.commun.Utils;
 import com.alpha.model.Settings;
 import com.alpha.view.Compass;
 import com.alpha.view.Menu;
@@ -19,12 +19,12 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 public class SettingPosition extends Dialog implements OnItemSelectedListener, android.view.View.OnClickListener
@@ -155,11 +155,14 @@ private void infoCity()
 
 private void getGPS()
 {
-	Location loc = utils.getCurrentLocation(context);	
+	Location loc = Utils.getCurrentLocation(context);	
 	if (loc!=null)
 	{
 		setting.setPosGps(loc.getLatitude(), loc.getLongitude(), loc.getAltitude());
 		this.infoCity();
+	} else
+	{
+		Toast.makeText(context, com.alpha.view.R.string.gps_HS, Toast.LENGTH_LONG).show();
 	}
 }
 	
@@ -172,14 +175,11 @@ if (start)
 	switch (source.getId())
 	{
 	case R.id.spinCity : 
-		//Log.d("sam","aa");
 		idxCity = idx;
 		break;
 	case R.id.spinContinent: 
-		//Log.d("sam","aa");
 		break;
 	case R.id.spinCountry : 
-		//Log.d("sam","aa");
 		if (idx != idxCountry)
 			{
 			idxCity = 0;

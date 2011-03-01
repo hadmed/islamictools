@@ -3,7 +3,7 @@
  */
 package com.alpha.pt;
 
-import com.alpha.mMath.mMath;
+//import com.alpha.mMath.mMath;
 
 public class PrayerTime {
 
@@ -34,15 +34,22 @@ public class PrayerTime {
 //		};
 
 //		public enum methods    { 
-			public static final int NONE = 0,
-			EGYPT_SURVEY = 1,
+			public static final int //NONE = 0,
+			/*EGYPT_SURVEY = 1,
 			KARACHI_SHAF = 2,
 			KARACHI_HANAF = 3,
 			NORTH_AMERICA = 4,
 			MUSLIM_LEAGUE = 5,
 			UMM_ALQURRA = 6,
-			FIXED_ISHAA  = 7;
-//			};
+			FIXED_ISHAA  = 7;*/
+			EGYPT_SURVEY = 0,
+			KARACHI_SHAF = 1,
+			KARACHI_HANAF = 2,
+			NORTH_AMERICA = 3,
+			MUSLIM_LEAGUE = 4,
+			UMM_ALQURRA = 5,
+			FIXED_ISHAA  = 6;
+			//			};
 
 //			enum salatType  {
 			public static final int
@@ -609,7 +616,7 @@ public class PrayerTime {
 					if ( part3 < -Astronomy.INVALID_TRIGGER || part3 > Astronomy.INVALID_TRIGGER)
 						return 99;
 
-					return Astronomy.DEG_TO_10_BASE * Astronomy.RAD_TO_DEG (mMath.acos(part3) );
+					return Astronomy.DEG_TO_10_BASE * Astronomy.RAD_TO_DEG (Math.acos(part3) );
 				}
 
 				static double getThuhr(double lon, final Astro astro)
@@ -626,14 +633,14 @@ public class PrayerTime {
 					if ((part1 < 1) || (lat < 0))
 						part1 = mathhab - Math.tan(rlat - dec);
 
-					part2 = (Astronomy.PI/2.0) - mMath.atan(part1);
+					part2 = (Astronomy.PI/2.0) - Math.atan(part1);
 					part3 = Math.sin(part2) - Math.sin(rlat) * Math.sin(dec);
 					part4 = (part3 / (Math.cos(rlat) * Math.cos(dec)));
 
 					if ( part4 < -Astronomy.INVALID_TRIGGER || part4 > Astronomy.INVALID_TRIGGER)
 						return 99;
 
-					return Astronomy.DEG_TO_10_BASE * Astronomy.RAD_TO_DEG (mMath.acos(part4));
+					return Astronomy.DEG_TO_10_BASE * Astronomy.RAD_TO_DEG (Math.acos(part4));
 				}
 
 				static int getDayofYear(int year, int month, int day)
@@ -709,10 +716,10 @@ public class PrayerTime {
 
 					switch(n)
 					{
-					case NONE:
+					/*case NONE:
 						conf.fajrAng = 0.0;
 						conf.ishaaAng = 0.0;
-						break;
+						break;*/
 
 					case EGYPT_SURVEY:
 						conf.fajrAng = 19.5;
@@ -747,9 +754,11 @@ public class PrayerTime {
 						break;
 
 					case FIXED_ISHAA:
-						conf.fajrAng = 19.5;
+						conf.fajrAng = 0.0;
+						conf.fajrInv = 80;
 						conf.ishaaAng = 0.0;
-						conf.ishaaInv = 90;
+						conf.ishaaInv = 80;
+						
 						break;
 					}
 				}
@@ -764,7 +773,7 @@ public class PrayerTime {
 					denom = (Math.cos (Astronomy.DEG_TO_RAD (loc.degreeLat)) * Math.tan (Astronomy.DEG_TO_RAD (KAABA_LAT))) -
 					(Math.sin (Astronomy.DEG_TO_RAD (loc.degreeLat)) * ((Math.cos ((Astronomy.DEG_TO_RAD (loc.degreeLong) -
 							Astronomy.DEG_TO_RAD(KAABA_LONG))))));
-					return Astronomy.RAD_TO_DEG (mMath.atan2 (num, denom));
+					return Astronomy.RAD_TO_DEG (Math.atan2 (num, denom));
 
 				}
 

@@ -2,7 +2,7 @@ package com.alpha.commun;
 
 import android.content.Context;
 import android.os.PowerManager;
-import android.os.Vibrator;
+//import android.os.Vibrator;
 
 public class WakeLock {
 

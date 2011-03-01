@@ -58,7 +58,7 @@
 	<item name="android:orientation">vertical</item>
 	<item name="android:layout_width">fill_parent</item>
 	<item name="android:layout_height">fill_parent</item>
-	<item name="android:gravity">center</item>
+	<item name="android:gravity">top|center</item>
 	
 </style>
 <style name="Titre">
@@ -90,9 +90,9 @@
 	<item name="android:gravity">center</item>
 </style>
 <style name="CadreHadithLayout">
-	<item name="android:orientation">vertical</item>
+	<item name="android:orientation">horizontal</item>
 	<item name="android:layout_width">fill_parent</item>
-	<item name="android:layout_height">120dip</item>
+	<item name="android:layout_height">fill_parent</item>
 	<!-- <item name="android:background">@drawable/sam_hadith</item> -->
 	<item name="android:background">@drawable/bkg</item> 
 </style>
@@ -173,6 +173,40 @@
 <style name="SettingCal.Titre">
 	<item name="android:textSize">16sp</item> 
 </style>	
+
+<style name="DateTable">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:gravity">center</item>    
+</style>
+
+<style name="DateTable.Name">
+	<item name="android:textSize">14sp</item> 
+	<item name="android:textStyle">bold</item> 
+	<item name="android:textColor">#FF542800</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>    
+    <item name="android:paddingRight">12dip</item>        
+    <item name="android:gravity">right</item>    
+</style>
+
+<style name="DateTable.Name2">
+	<item name="android:textSize">14sp</item> 
+	<item name="android:textStyle">italic</item> 
+	<item name="android:textColor">#FF542800</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:gravity">left</item>    
+        <item name="android:paddingRight">12dip</item>
+    
+</style>
+
+<style name="DateTable.Day">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:text">00/00/0000</item>    
+	<item name="android:textColor">#FFD86804</item>
+</style>
 
 
 </resources>
