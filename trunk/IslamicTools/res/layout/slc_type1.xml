@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+
+<TextView android:id="@+id/slc_txt1"
+        android:layout_weight="1.0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:paddingTop="12dip"
+        android:paddingBottom="12dip"        
+        android:paddingRight="12dip"
+        android:textColor = "#CCFFFFFF"
+ />
+</LinearLayout>

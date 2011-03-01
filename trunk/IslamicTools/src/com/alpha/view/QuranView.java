@@ -59,12 +59,6 @@ public class QuranView extends ListActivity
      	TextView text;
      	TextView text2;
      }
-
-	public LayoutInflater getMInflater()
-	{
-		return this.mInflater;
-	}
-     
      
 	}
 	  
@@ -202,7 +196,7 @@ public class QuranView extends ListActivity
 	 };
 	
 	 private static final String[] SOURATE_FR = {
-	 "Prologue/ouverture",
+  "Prologue/ouverture",
  "La vache",
  "La famille d'Imran",
  "Les femmes",

@@ -3,13 +3,17 @@
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent" 
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    > <!-- android:background="@drawable/back_quran"  -->
     <RelativeLayout
         android:layout_width="fill_parent" 
         android:layout_height="fill_parent" 
         android:layout_weight="1" 
         android:clipToPadding="true"
         android:paddingBottom="32dip">
+              <com.alpha.commun.FastScrollView 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
         
         <ListView android:id="@android:id/list"
             android:layout_width="fill_parent" 
@@ -21,7 +25,7 @@
             android:layout_width="fill_parent" 
             android:layout_height="fill_parent"
             android:text="Text non chargé !"/>
-            
+        </com.alpha.commun.FastScrollView>    
   </RelativeLayout>
       <RelativeLayout
         android:layout_width="fill_parent" 

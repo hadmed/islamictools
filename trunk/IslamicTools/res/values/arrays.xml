@@ -1,0 +1,20 @@
+<resources>
+    <string-array name="methode">
+    <item>Le Cadastre général d\'Egypte</item>
+	<item>Shaf`i - L\'Université des Sciences Islamiques de Karachi</item>
+	<item>Hanafi - L\'Université des Sciences Islamiques de Karachi</item>
+	<item>La Fédération Islamique de l\'Amérique du nord</item>
+	<item>La Ligue du Monde Islamique</item>
+	<item>Umm Ul Qurâ,  Arabie Saoudite</item>
+	<item>fixe pour Fadjr/Ishaa</item>
+    </string-array>
+    <string-array name="methode_val">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>  
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>  
+        <item>7</item>  
+    </string-array>
+</resources>

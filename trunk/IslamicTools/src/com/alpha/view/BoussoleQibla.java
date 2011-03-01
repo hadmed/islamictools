@@ -102,15 +102,13 @@ public class BoussoleQibla extends Activity
           canvas.translate(tx, ty);
           canvas.drawBitmap(mBitmap2, mMatrix2, null);
           canvas.drawBitmap(mBitmap, mMatrix, null);
-    		
     	  }
     	}
 
 
     	public void onAccuracyChanged(Sensor sensor, int accuracy)
     	{
-    		// TODO Auto-generated method stub
-    		
+    		return;
     	}
 
     	public void setFreeze(boolean freeze)

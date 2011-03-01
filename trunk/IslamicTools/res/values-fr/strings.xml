@@ -4,7 +4,7 @@
     <string name="loading">[chargement...]</string>
     <string name="save">sauvegarder</string>
     
-    <string name="menu_title">Islamic Tools par Selim A.</string>    
+    <string name="menu_title">Islamic Tools par Selim Amroune</string>    
     <string name="pt_location">Lieu :</string>
     <string name="pt_fadjr">Fadjr</string>
     <string name="pt_shurooq">Shurooq</string>
@@ -24,14 +24,16 @@
 
     <string name="set_parametre">Paramètrage</string>
     <string name="set_position">Position actuelle</string>
-    		<string name="set_pos_gps">Acquisition GPS</string>
+		<string name="set_pos_gps">Acquisition GPS</string>
+		<string name="gps_HS">GPS désactivé</string>
+    		
     <string name="set_notification">notification</string>
-	    	<string name="set_notif_titre">Paramètrage des alertes</string>
-	    	<string name="set_notif_alert">Rappel avant prière</string>
+   	<string name="set_notif_titre">Paramètrage des alertes</string>
+   	<string name="set_notif_alert">Rappel avant prière</string>
 	    	
     <string name="set_calcul">calcul</string>
-	    	<string name="set_calcul_titre">Paramètrage du calcul</string>
-	    	<string name="set_cal_min">min.</string>
+   	<string name="set_calcul_titre">Paramètrage du calcul</string>
+   	<string name="set_cal_min">min.</string>
     <string name="set_theme">thème</string>
     <string name="set_reciter">réciteur coranique</string>
 	    	<string name="set_rec_titre">Réciteur Coranique</string>
@@ -39,12 +41,19 @@
     <string name="set_about">A propos</string>
     
     <string name="not_reset">Réinitialisation des paramètres !</string>
+	<string name="init_DB">Initilialisation de la Base de Donnée</string>
+
+    <string name="file_not_found">Fichier introuvable !</string>
 
 
     <string name="spinContinent">Choix du Continent</string>
     <string name="spinCountry">Choix du Pays</string>
     <string name="spinCity">Choix de la Ville</string>
     
+    <string name="notifPrayer">C\'est la prière! [#]</string>
+    <string name="day_01">Nouvel an</string>
+    <string name="dayAR_06">Nuit du destin</string>
+<string name="no_connexion">Pas de connexion internet !\nVérifiez vos paramétrages.</string>    
     
     
 </resources>

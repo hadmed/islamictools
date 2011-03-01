@@ -11,7 +11,6 @@ import com.alpha.model.Settings;
 import android.app.ListActivity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +29,7 @@ public class CalendarView extends ListActivity
 			 private Map<Integer,String> dayOfWeek;
 		     public EfficientAdapter(Context context) {
 		   	  dayOfWeek = new HashMap<Integer, String>();
+		   	  
 		   	  dayOfWeek.put(Calendar.MONDAY, "Lun.");
 		   	  dayOfWeek.put(Calendar.TUESDAY, "Mar.");
 		   	  dayOfWeek.put(Calendar.WEDNESDAY, "Mer.");
@@ -115,10 +115,10 @@ public class CalendarView extends ListActivity
 		     	TextView isha;
 		     }
 
-			public LayoutInflater getMInflater()
+			/*public LayoutInflater getMInflater()
 			{
 				return this.mInflater;
-			}
+			}*/
 		     
 		     
 			}

@@ -3,10 +3,9 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent">
+  	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
   <TextView android:layout_width="fill_parent"
-  android:layout_height="fill_parent" android:id="@+id/set_about" 
-
-  android:text="[b]Islamic Tools[/b] par Selim Amroune\n
-  vous êtes autorisés à copier, diffuser et modifier* ce programme."
-  />
+  android:layout_height="fill_parent" android:id="@+id/set_about"  />
+  </ScrollView>
 </LinearLayout>

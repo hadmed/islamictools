@@ -10,7 +10,7 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class NameAllah extends Activity
@@ -21,7 +21,8 @@ public class NameAllah extends Activity
 	      super.onCreate(savedInstanceState);
 	      setContentView(R.layout.name_allah);
 	      setTitle("Les 99 noms d'Allah");
-	      GridView gridview = (GridView)findViewById(R.id.gridNameAllah); 
+	      //GridView gridview = (GridView)findViewById(R.id.gridNameAllah); 
+	      ListView listView = (ListView)findViewById(R.id.gridNameAllah);
 	      ArrayList<HashMap<String, Object>> nameList = new ArrayList<HashMap<String, Object>>(); 
 /**/
    		List<String> name = this.charger("trad");
@@ -40,7 +41,7 @@ public class NameAllah extends Activity
 	      		  new String[]{"img","txt","txt2"}, 
 	      		  new int[]{R.id.ItemImage,R.id.ItemText,R.id.ItemText2});  
 
-	      		gridview.setAdapter(saNameItem); 
+	      		listView.setAdapter(saNameItem); 
 	 }
 
 	 private List<String> charger(String src)

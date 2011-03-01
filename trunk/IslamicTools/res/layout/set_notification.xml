@@ -50,7 +50,7 @@
   android:layout_height="wrap_content"
   android:orientation="horizontal"
   >
-<EditText android:id="@+id/alert_before" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<EditText android:id="@+id/alert_before" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
 <TextView style="@style/SettingNotif.PrayerName" android:text="@string/set_cal_min"/>
 </LinearLayout>
 </LinearLayout>

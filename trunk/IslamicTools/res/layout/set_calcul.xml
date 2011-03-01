@@ -19,8 +19,18 @@
   android:layout_height="wrap_content"
   android:orientation="horizontal">
 	<TextView style="@style/SettingCal.PrayerName" android:text="methode" />  
-	<Spinner android:id="@+id/set_cal_method"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input"  />
+	<Spinner android:id="@+id/set_cal_method"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/input" />
 </LinearLayout>
+
+<!-- 
+<LinearLayout
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+	<TextView style="@style/SettingCal.PrayerName" android:text="Fadjr" />  
+</LinearLayout>
+-->
+
 <LinearLayout
  android:layout_width="wrap_content"  android:layout_height="wrap_content"
  android:orientation="horizontal" >
@@ -42,12 +52,12 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
-<EditText android:id="@+id/set_cal_fadjr"  android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
-<EditText android:id="@+id/set_cal_shurooq" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
-<EditText android:id="@+id/set_cal_zuhr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
-<EditText android:id="@+id/set_cal_asr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
-<EditText android:id="@+id/set_cal_maghrib" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
-<EditText android:id="@+id/set_cal_isha" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_fadjr"  android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_shurooq" android:layout_width="70dip" android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_zuhr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<EditText android:id="@+id/set_cal_asr" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
+<EditText android:id="@+id/set_cal_maghrib" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned"  />
+<EditText android:id="@+id/set_cal_isha" android:layout_width="70dip"  android:layout_height="32dip" android:background="@drawable/input" android:text="0" android:textColor="#000000" android:inputType="numberSigned" />
 
 </LinearLayout>
 <LinearLayout

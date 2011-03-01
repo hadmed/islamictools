@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:id="@+id/gridNameAllah"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical"
   android:background="#e0e0e0"
-  >
-</GridView>
+    >
+
+<com.alpha.commun.FastScrollView 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+<ListView
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:id="@+id/gridNameAllah"
+  android:cacheColorHint="#00000000"
+  />
+</com.alpha.commun.FastScrollView>
+</LinearLayout>

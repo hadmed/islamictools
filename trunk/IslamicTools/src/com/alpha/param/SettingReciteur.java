@@ -68,6 +68,7 @@ if (assign)
 private void save()
 {
 	setting.save();
+	dismiss();
 }
 
 @Override

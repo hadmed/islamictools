@@ -37,10 +37,7 @@ public class Sourate extends ListActivity
 	
    private static class EfficientAdapter extends BaseAdapter{
       private LayoutInflater mInflater;
-      //private Bitmap mIcon1;
-      //private Bitmap mIcon2;
       private AssetManager manager;
-      //private Context mContext;
       private int sourate;
       
       private List<String> getSourate(int sourate,String lang)
@@ -49,7 +46,6 @@ public class Sourate extends ListActivity
          try
          {         	
          InputStream is = manager.open("sourate/"+lang+"/"+sourate+".gzx");
-         
          GZIPInputStream fis = new GZIPInputStream(is);
          if (fis != null)            	
        	  	{
@@ -67,8 +63,6 @@ public class Sourate extends ListActivity
       	
       	return txt;
       }
-      
- 
       
       public EfficientAdapter(Context context,Bundle bundle) {
           // Cache the LayoutInflate to avoid asking for a new one each time.
@@ -143,27 +137,7 @@ public class Sourate extends ListActivity
               }
               holder.text2.setTextColor(0xFFc0c0c0);
               holder.text3.setTextColor(0xFFFFFFFF);
-              
-              /*
-              AlertDialog.Builder alt_bld = new AlertDialog.Builder(convertView.getContext());
-              alt_bld.setMessage("Do you want to close this window ?")
-              .setCancelable(false)
-              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-	            public void onClick(DialogInterface dialog, int id) {
-	            }
-              })
-              	.setNegativeButton("No", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-					//  Action for 'NO' Button
-					dialog.cancel();
-					}
-					});
-              AlertDialog alert = alt_bld.create();
-              alert.setTitle("Title");
-              //alert.setIcon(R.drawable.icon);
-              alert.show();
-              */
-          
+                        
           } else {
               holder = (ViewHolder) convertView.getTag();
           }
@@ -175,8 +149,6 @@ public class Sourate extends ListActivity
              holder.text3.setText(SOURATE_TXT.get("FR").get(position)); 
           }catch(Exception ex){
           }
-          //holder.icon.setImageBitmap((position & 1) == 1 ? mIcon1 : mIcon2);
-          //return holder.text;
           return convertView;
       }
       private String getArabicR(String s,boolean logg)
@@ -216,8 +188,6 @@ public class Sourate extends ListActivity
       	TextView text;
       	TextView text2;
       	TextView text3;
-      	
-          //ImageView icon;
       }
   }
    
@@ -229,21 +199,6 @@ public class Sourate extends ListActivity
       setTitle(getIntent().getExtras().getString("titre"));
       this.sourate = getIntent().getExtras().getInt("sourate")+1;
       getListView().setEmptyView(findViewById(R.id.empty));
-      //ListView lv = (ListView)findViewById(R.id.lv);
-
-      /*Runnable task =  new Runnable() {
-	   	public void run()
-	   	{
-      TextView tv = (TextView) findViewById(R.id.exegese);
-      tv.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/arial.ttf"));
-      tv.setText(Html.fromHtml(xgz));
-      //tv.setText(Html.fromHtml(getXGZFile("001.html")));
-	   	}
-      };
-      //new Thread(task).start();
-       task.run();
-      */
-      
       setListAdapter(new EfficientAdapter(this,getIntent().getExtras()));
       WebView wv = (WebView) findViewById(R.id.exegese);
       wv.setBackgroundColor(0);
@@ -271,18 +226,10 @@ public class Sourate extends ListActivity
 	  }
   */
   protected void onListItemClick(ListView l, View v, int position, long id) {
-
-	  
-	  //l.setSelection(position);
 	  WebView wv = (WebView) findViewById(R.id.exegese);
 	  wv.loadUrl("javascript:location.href='#S"+(position+1)+"'");
-	  //l.getFocusedChild().setBackgroundColor(Color.BLUE);
-	  //if (sourate == 1 || sourate == 2 ||sourate == 40 )
-	 {
-		  sp = SamPlayer.getInstance(Sourate.this,(TextView)findViewById(R.id.timing),l);
-		  sp.playSourate(sourate, position);
-
-    }
+	  sp = SamPlayer.getInstance(Sourate.this,(TextView)findViewById(R.id.timing),l);
+	  sp.playSourate(sourate, position);
 }
 		
   @Override
@@ -302,7 +249,6 @@ public void onPanelClosed(int featureId, Menu menu)
 	  {
 		  sp.close();
 	  }
-	// TODO Auto-generated method stub
 	super.onPanelClosed(featureId, menu);
 }
   

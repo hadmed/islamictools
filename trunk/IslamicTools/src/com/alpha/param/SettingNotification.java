@@ -1,12 +1,9 @@
 package com.alpha.param;
 
 import com.alpha.commun.Param;
-import com.alpha.commun.utils;
+import com.alpha.commun.Utils;
 import com.alpha.model.Settings;
 import com.alpha.view.R;
-import com.alpha.view.R.drawable;
-
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -89,7 +86,7 @@ notif += spk_asr ? Param.asr : 0;
 notif += spk_maghrib ? Param.maghrib : 0;
 notif += spk_isha ? Param.isha : 0;
 setting.setNotification(notif);	
-setting.setAlert_before(utils.str2int(((EditText)findViewById(R.id.alert_before)).getText().toString(),0) );
+setting.setAlert_before(Utils.str2int(((EditText)findViewById(R.id.alert_before)).getText().toString(),0) );
 setting.save();
 dismiss();
 }

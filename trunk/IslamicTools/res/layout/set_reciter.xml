@@ -18,7 +18,7 @@
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
   android:orientation="horizontal">
-	<Spinner android:id="@+id/set_rec_name"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input"  />
+	<Spinner android:id="@+id/set_rec_name"  android:layout_width="fill_parent" android:layout_height="32dip"  android:background="@drawable/input" />
 </LinearLayout>
 <LinearLayout
  android:layout_width="fill_parent"  android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
   android:layout_height="wrap_content"
   android:orientation="vertical"
   >
-<EditText android:id="@+id/set_rec_folder"  android:layout_width="fill_parent" android:layout_height="32dip" android:background="@drawable/timepicker_input" android:text="/" android:textColor="#000000" android:inputType="textUri" />
+<EditText android:id="@+id/set_rec_folder"  android:layout_width="fill_parent" android:layout_height="32dip"  android:background="@drawable/input" android:text="/" android:textColor="#000000" android:inputType="textUri" />
 </LinearLayout>
 
 </LinearLayout>

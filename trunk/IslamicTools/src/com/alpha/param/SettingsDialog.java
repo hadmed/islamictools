@@ -5,13 +5,21 @@ import com.alpha.view.Menu;
 import com.alpha.view.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class SettingsDialog extends Dialog implements OnClickListener
 {
@@ -58,6 +66,7 @@ public void onClick(View v)
 switch (v.getId())
 {
 case R.id.set_position : 
+		Toast.makeText(context, R.string.init_DB, Toast.LENGTH_SHORT).show();
 		SettingPosition set_pos = new SettingPosition(context,activity,false);
 		set_pos.show(); break;
 case R.id.set_notification : 
@@ -70,8 +79,22 @@ case R.id.set_reciter :
 	SettingReciteur set_rec = new SettingReciteur(context);
 	set_rec.show(); break;
 case R.id.set_about : 
-	(new SettingAbout(context)).show();	
-					break;
+	String version = "";
+	try
+	{
+		version = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_META_DATA).versionName;
+	} catch (NameNotFoundException nfe)
+	{
+		version = "[?]";
+	}
+	SpannableString s = new SpannableString(context.getText(R.string.about_txt).toString().replaceAll("#", version));
+	Linkify.addLinks(s, Linkify.WEB_URLS);
+	LinearLayout help = (LinearLayout)getLayoutInflater().inflate(R.layout.set_about, null);
+	TextView message = (TextView)help.findViewById(R.id.set_about);
+	message.setText(s);
+	message.setMovementMethod(LinkMovementMethod.getInstance());
+	new AlertDialog.Builder(context).setTitle("IslamicTools").setView(help).setPositiveButton(android.R.string.ok, null).create().show();
+	break;
 
 
 
